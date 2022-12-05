@@ -1,0 +1,72 @@
+﻿@model List<HotelProject.Models.Musteri>
+@{
+    ViewData["Title"] = "Musteriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Müşteriler</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Müşterilimizin bilgilerini burdan görebilirsiniz.</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Adı Soyadı</th>
+                            <th>Tc Kimlik No</th>
+                            <th>Doğum Tarihi</th>
+                            <th>Uyruk</th>
+                            <th>Telefon</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Adisoyadi</td>
+                                <td>@item.TcNo</td>
+                                <td>@item.DogumTarihi.ToString("dd.MM.yyyy")</td>
+                                <td>@item.Uyruk</td>
+                                <td>@item.Telefon</td>
+                                <td>
+                                    <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-pencil"></i></a>
+                                    <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-pencil"></i></a>
+                                    <a style="margin-right: 4px;" href="/yonet
+                                       
+                                       im/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+</section>
+

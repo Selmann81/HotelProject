@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewData["Title"] = "İletisim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+
+    <div class="page-wrapper">
+
+        <div class="loader-wrap">
+            <div class="preloader"><div class="preloader-close">Preloader Close</div></div>
+            <div class="layer layer-one"><span class="overlay"></span></div>
+            <div class="layer layer-two"><span class="overlay"></span></div>
+            <div class="layer layer-three"><span class="overlay"></span></div>
+        </div>
+        <div class="page-title" style="background-image: url(/assets/images/background/page-title-6.jpg);">
+            <div class="auto-container">
+                <h1>İletişim</h1>
+            </div>
+        </div>
+        <div class="bredcrumb-wrap">
+            <div class="auto-container">
+                <ul class="bredcrumb-list">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li>İletişim</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <section class="section-padding ">
+            <div class="auto-container">
+                <div class="section_heading mb_40">
+                    <span class="section_heading_title_small">Adresimiz</span>
+                    <h2 class="section_heading_title_big">Ofisimizi Bulun</h2>
+                </div>
+                <ul class="contact-info-1 d-flex flex-wrap mb_40">
+                    <li>
+                        <h4 class="fs_20 mb_10"><i class="icon-27 mr_10 fs_18"></i>Adres</h4>
+                        <p>Azmimilli Mah. Serhat Sk. No:1/1 81020 Merkez/Düzce</p>
+                    </li>
+                    <li>
+                        <h4 class="fs_20 mb_10"><i class="icon-28 mr_10 fs_18"></i>Telefon Numarası</h4>
+                        <p>(850) 800 07 60</p>
+                    </li>
+                    <li>
+                        <h4 class="fs_20 mb_10"><i class="icon-29 mr_10 fs_15"></i>Email</h4>
+                        <p><a href="info@openyazilim.com">info@openyazilim.com</a></p>
+                    </li>
+                </ul>
+                <div class="row no-gutters">
+                    <div class="col-lg-5">
+                        <div class="form-alt form-alt3 with-shadow">
+                            <form method="post" id="contact-form">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <input type="text" name="form_name" value="" placeholder="Adınız" required>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <input type="text" name="email" value="" placeholder="Soyadınız" required>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <input type="text" name="form_subject" value="" placeholder="Konu" required>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <textarea name="form_message" placeholder="Mesaj"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                        <button class="btn-1" type="submit" data-loading-text="Please wait...">Gönder <i class="flaticon-right-arrow-1"></i><span></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="map mb_30">
+                            <iframe src="https://www.google.com/maps/d/embed?mid=1usD2CXJzb0WekNoHNxX329f903AAZ88&ehbc=2E312F" width="600" height="535" frameborder="0" style="border:0; width: 100%" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

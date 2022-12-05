@@ -1,0 +1,72 @@
+﻿@model List<HotelProject.Models.Odalar>
+@{
+    ViewData["Title"] = "Odalar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Odalar</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Oda Detayları.</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Oda Adı</th>
+                            <th>Oda No</th>
+                            <th>Oda Tipi</th>
+                            <th>Oda Ücreti</th>
+                            <th>Cephe</th>
+                            <th>Yatak Sayısı</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="center">@item.Idno</td>
+                            <td class="center">@item.OdaAdi</td>
+                            <td class="center">@item.OdaNo</td>
+                            <td class="center">@item.OdaTip</td>
+                            <td class="center">@item.YatakSayisi</td>
+                            <td class="center">@item.Ozellikler</td>
+                            <td class="center">@item.Act</td>
+                            <td class="center">
+                                <a style="margin-right: 4px;" href="/Admin/Odalar/YeniOda" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-gears"></i></a>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        }
+                        </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+</section>
+
+

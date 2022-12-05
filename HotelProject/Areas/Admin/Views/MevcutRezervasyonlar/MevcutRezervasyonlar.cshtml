@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewData["Title"] = "MevcutRezervasyonlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Mevcut Rezervasyonlar</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Mevcut bulunan rezervasyonları bu tablodan görebilirsiniz.</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Oda Tipi</th>
+                            <th>Müşteri Adı</th>
+                            <th>Giriş Tarihi</th>
+                            <th>Çıkış Tarihi</th>
+                            <th>Kişi</th>
+                            <th>Pansiyon</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tek </td>
+                            <td>Selman Yılmaz</td>
+                            <td>28.11.2022 12.00</td>
+                            <td>30.11.2022 11.00</td>
+                            <td>2 Yetişkin 1 Çocuk</td>
+                            <td>Sadece Oda</td>
+                            <td>Beklemede</td>
+                            <td>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tek Kişilik</td>
+                            <td>Selman Yılmaz</td>
+                            <td>28.11.2022 12.00</td>
+                            <td>30.11.2022 11.00</td>
+                            <td>2 Yetişkin 1 Çocuk</td>
+                            <td>Sadece Oda</td>
+                            <td>Beklemede</td>
+                            <td>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+
+            @*<div class="modal fade rezOnayla" id="rezOnayla" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <form action="~/yonetim/rezervasyon/RezervasyonOnay" method="post">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="exampleModalLabel">Rezervasyon</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        Oda Seçin
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("OdaId", (List<SelectListItem>)ViewBag.odaListe, new { @class = "form-control", tabindex = "2" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" id="OnayId" name="id" />
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    İptal
+                                </button>
+                                <button type="submit" class="btn btn-primary">Rezervasyonu Onayla</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+</section>
+
