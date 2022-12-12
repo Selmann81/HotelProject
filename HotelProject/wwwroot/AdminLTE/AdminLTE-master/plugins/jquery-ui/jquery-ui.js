@@ -7595,7 +7595,7 @@ $.extend( Datepicker.prototype, {
 					}
 					return maxI;
 				};
-				date.setMonth( findMax( this._get( inst, ( dateFormat.match( /MM/ ) ?
+				date.setMonth( findMax( this._get( inst, ( dateFormat.match( /dd/ ) ?
 					"monthNames" : "monthNamesShort" ) ) ) );
 				date.setDate( findMax( this._get( inst, ( dateFormat.match( /DD/ ) ?
 					"dayNames" : "dayNamesShort" ) ) ) + 20 - date.getDay() );
