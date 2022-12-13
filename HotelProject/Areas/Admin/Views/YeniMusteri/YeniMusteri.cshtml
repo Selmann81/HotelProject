@@ -1,5 +1,4 @@
-﻿@model HotelProject.Models.Musteri
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model Musteri
 @{
     ViewData["Title"] = "YeniMusteri";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -27,7 +26,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="card">
                 <div class="card-body">
-                    <form>
+                    <form asp-action="YeniMusteri" method="post">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="tckimlik">Tc Kimlik Numarası</label>

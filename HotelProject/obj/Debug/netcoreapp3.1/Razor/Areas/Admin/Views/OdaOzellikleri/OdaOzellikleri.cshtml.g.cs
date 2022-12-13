@@ -12,7 +12,22 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\Areas\Admin\Views\_ViewImports.cshtml"
+using HotelProject;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\Areas\Admin\Views\_ViewImports.cshtml"
+using HotelProject.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ae211f82d232094e02c9aeb06218677f14126070", @"/Areas/Admin/Views/OdaOzellikleri/OdaOzellikleri.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fb09db0503d14a9b78c0ad36cf07abe732643c82", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_OdaOzellikleri_OdaOzellikleri : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<HotelProject.Models.OdaOzellik>>
     {
         #pragma warning disable 1998

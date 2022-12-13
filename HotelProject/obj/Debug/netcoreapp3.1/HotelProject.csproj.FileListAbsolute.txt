@@ -167,3 +167,8 @@ C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\YeniMusteri\YeniMusteri.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Admin\deneme.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Odalar\YeniOda.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OdaTipleri\YeniOdaTipi.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Pansiyonlar\YeniPansiyon.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OdaOzellikleri\YeniOzellik.cshtml.g.cs

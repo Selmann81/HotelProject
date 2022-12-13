@@ -32,7 +32,7 @@ namespace HotelProject.Controllers
         [HttpPost]
         public IActionResult Rezervasyon(string tarih, string odatip, string pansiyon, string telefon, string yetiskin, string cocuk)
         {
-            DateTime.Now.ToString("dd/mm/yy");
+            //DateTime.Now.ToString("dd/mm/y");
             Musteri musteri = new Musteri();
             //DateTime suan = DateTime.Now;
             //string[] tarihAralik = tarih.Split("-");

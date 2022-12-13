@@ -27,7 +27,7 @@ namespace HotelProject.Areas.Admin.Controllers
         public IActionResult YeniOda(int id)
         {
             Odalar odalar = new Odalar();
-            List<SelectListItem> odatips = (from p in c.OdaTips.ToList().Where(p => p.Act == 1).OrderBy(p => p.Baslik)
+            List<SelectListItem> odatips = (from p in c.OdaTips.ToList().Where(p => p.Act == 1 && !String.IsNullOrEmpty(p.Baslik)).OrderBy(p => p.Baslik)
             select new SelectListItem
             {
                 Text = p.Baslik,

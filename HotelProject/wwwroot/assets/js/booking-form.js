@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
           altField: "#nd_booking_date_month_from",
           altFormat: "M",
           firstDay: 0,
-          dateFormat: "dd/mm/YY",
+          dateFormat: "dd/mm/yy",
           monthNames: ["Ocak","Þubat","Mart","April","May","June", "July","August","September","October","November","December"],
           monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
           dayNamesMin: ["PZT","MO","TU","WE","TH","FR", "SA"],

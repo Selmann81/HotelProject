@@ -21,5 +21,9 @@ namespace HotelProject.Areas.Admin.Controllers
             var list = c.Musteris.Where(x => x.Act != 0).ToList();
             return View(list);
         }
+
     }
 }
+
+    
+
