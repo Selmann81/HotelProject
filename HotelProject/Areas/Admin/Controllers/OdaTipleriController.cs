@@ -37,6 +37,7 @@ namespace HotelProject.Areas.Admin.Controllers
         {
             if (tip.Idno == 0)
             {
+                
                 tip.Act = 1;
                 c.Set<OdaTip>().Add(tip);
                 c.SaveChanges();
