@@ -22,6 +22,7 @@ namespace HotelProject.Models
         public double Ucret { get; set; }
         [ForeignKey(nameof(Pansiyonlars))]
         public int Pansiyon { get; set; }
+        public string RandomKey { get; set; }
         public double EkUcret { get; set; }
         public string Aciklama { get; set; }
         public int Yetiskin { get; set; }

@@ -1,4 +1,4 @@
-﻿@model HotelProject.Models.Pansiyonlar
+﻿  @model Pansiyonlar
 @{
     ViewData["Title"] = "YeniPansiyon";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -29,7 +29,7 @@
                     <form asp-action="YeniPansiyon" method="post">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="başlık">Tc Kimlik Numarası</label>
+                                <label for="başlık">Başlık</label>
                                 <input type="text" class="form-control" placeholder="Başlık" asp-for="Baslik">
                             </div>
                             <div class="form-group col-md-6">

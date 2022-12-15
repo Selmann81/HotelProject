@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace HotelProject.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class PansiyonlarController : Controller
     {
         private readonly SiteContext c;
@@ -14,7 +15,6 @@ namespace HotelProject.Areas.Admin.Controllers
         {
             this.c = c;
         }
-        [Area("Admin")]
         public IActionResult Pansiyonlar()
         {
             var list = c.Pansiyonlars.Where(x => x.Act != 0).ToList();
@@ -53,6 +53,25 @@ namespace HotelProject.Areas.Admin.Controllers
                 c.SaveChanges();
                 TempData["success"] = "Pansiyon güncellendi";
             }
+            return RedirectToAction("Pansiyonlar", "Pansiyonlar");
+        }
+        public IActionResult PansiyonSil(int id)
+        {
+            if (id != 0)
+            {
+                var x = c.Pansiyonlars.SingleOrDefault(x => x.Idno == id && x.Act != 0);
+                if (x != null)
+                {
+                    x.Act = 0;
+                    c.Set<Pansiyonlar>().Update(x);
+                    c.SaveChanges();
+                    TempData["success"] = "Pansiyon silindi";
+                }
+                else
+                    TempData["error"] = "Pansiyon bulunamadı";
+            }
+            else
+                TempData["error"] = "Pansiyon bulunamadı";
             return RedirectToAction("Pansiyonlar", "Pansiyonlar");
         }
     }

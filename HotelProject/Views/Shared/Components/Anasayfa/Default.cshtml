@@ -63,56 +63,56 @@
         <div class="hotel-booking-form-1 gray-bg">
             <div class="auto-container">
                 <div class="hotel-booking-form-1-wrap">
-                    <form asp-action="Rezervasyon" class="hotel-booking-form-1-form flex-grow-1 d-flex align-items-end">
+                    <form asp-action="Index" method="post" class="hotel-booking-form-1-form flex-grow-1 d-flex align-items-end">
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Giriş:</p>
-                            <input placeholder="17 Sep, 2022" class="" type="text" name="form-name" id="nd_booking_archive_form_date_range_from" value="" autocomplete="off" />
+                            <input placeholder="17 Sep, 2022" class="" type="text" name="girisTarih" id="nd_booking_archive_form_date_range_from" value="" autocomplete="off" />
                         </div>
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Çıkış:</p>
-                            <input placeholder="21 Sep, 2022" class="" type="text" name="form-name" id="nd_booking_archive_form_date_range_to" value=""  autocomplete="off" />
+                            <input placeholder="21 Sep, 2022" class="" type="text" name="cikisTarih" id="nd_booking_archive_form_date_range_to" value="" autocomplete="off" />
                         </div>
 
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Telefon No:</p>
-                            <input placeholder="Telefon No" class="" type="text" name="form-name" autocomplete="off">
+                            <input placeholder="Telefon No" class="" type="text" name="telefon" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Pansiyon</p>
                             <select name="pansiyon">
                                 @foreach (var item in Model.Pansiyonlars)
                                 {
-                                    <option value="@item.Baslik">@item.Baslik</option>
+                                    <option value="@item.Idno">@item.Baslik</option>
                                 }
                             </select>
                         </div>
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Odalar</p>
-                            <select name="odalar">
+                            <select name="odatip">
                                 @foreach (var item in Model.OdaTips)
                                 {
-                                    <option value="@item.Baslik">@item.Baslik</option>
+                                    <option value="@item.Idno">@item.Baslik</option>
                                 }
                             </select>
                         </div>
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Yetişkin;</p>
                             <select name="Yetiskin">
-                                <option data-display="1 Yetişkin">1 Yetişkin</option>
-                                <option value="2 Adult">2 Yetişkin</option>
-                                <option value="3 Adults">3 Yetişkin</option>
-                                <option value="4 Adults">4 Yetişkin</option>
-                                <option value="5 Adults">5 Yetişkin</option>
+                                <option value="1">1 Yetişkin</option>
+                                <option value="2">2 Yetişkin</option>
+                                <option value="3">3 Yetişkin</option>
+                                <option value="4">4 Yetişkin</option>
+                                <option value="5">5 Yetişkin</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Çocuk:</p>
-                            <select>
-                                <option data-display="1 Çocuk">1 Çocuk</option>
-                                <option value="2 Adult">2 Çocuk</option>
-                                <option value="3 Adults">3 Çocuk</option>
-                                <option value="4 Adults">4 Çocuk</option>
-                                <option value="5 Adults">5 Çocuk</option>
+                            <select name="cocuk">
+                                <option value="1">1 Çocuk</option>
+                                <option value="2">2 Çocuk</option>
+                                <option value="3">3 Çocuk</option>
+                                <option value="4">4 Çocuk</option>
+                                <option value="5">5 Çocuk</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -467,7 +467,7 @@
                         <div class="p_relative">
                             <div class="p_absolute l_0 b__75"><img src="~/assets/images/shape/pattern-1.png" alt=""></div>
                             <div class="form-alt">
-                                <form method="post" action="https://html.tonatheme.com/2022/royalking/sendemail.php" id="contact-form">
+                                <form method="post" action="" id="contact-form">
                                     <div class="row clearfix">
                                         <div class="form-group col-md-12">
                                             <input type="text" name="form_name" value="" placeholder="Adınız" required>
@@ -517,6 +517,7 @@
     </div>
 </body>
 @section Scripts {
+
     <script>
         function rezerveEt() {
             var tarih = $('#check_in').val();

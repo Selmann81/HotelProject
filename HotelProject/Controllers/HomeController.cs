@@ -24,28 +24,20 @@ namespace HotelProject.Controllers
         public IActionResult deneme()
         {
             return View();
-        }
+        } 
         public IActionResult Index()
         {
             return View();
         }
+        
         [HttpPost]
-        public IActionResult Rezervasyon(string tarih, string odatip, string pansiyon, string telefon, string yetiskin, string cocuk)
+        public IActionResult Index(DateTime girisTarih, DateTime cikisTarih, string odatip, string pansiyon, string telefon, string yetiskin, string cocuk)
         {
-            //DateTime.Now.ToString("dd/mm/y");
             Musteri musteri = new Musteri();
-            //DateTime suan = DateTime.Now;
-            //string[] tarihAralik = tarih.Split("-");
-            //string[] tarih1 = tarihAralik;
-            //string[] tarih2 = tarihAralik;
-
-            //DateTime baslangic = new DateTime(Convert.ToInt32(tarih1[2]), Convert.ToInt32(tarih1[0]), Convert.ToInt32(tarih1[1]), suan.Hour, suan.Minute, suan.Second);
-            //DateTime bitis = new DateTime(Convert.ToInt32(tarih2[2]), Convert.ToInt32(tarih2[0]), Convert.ToInt32(tarih2[1]), suan.Hour, suan.Minute, suan.Second);
-
-
-            if (musteri != null)
+            var mus = c.Musteris.FirstOrDefault(x => x.Telefon == telefon);
+            if (mus != null)
             {
-                musteri.Idno = musteri.Idno;
+                musteri.Idno = mus.Idno;
             }
             else
             {
@@ -53,22 +45,39 @@ namespace HotelProject.Controllers
                 c.Set<Musteri>().Add(musteri);
                 c.SaveChanges();
             }
-            HotelProject.ViewModels.Site.Rezervasyonlar rezervasyon = new HotelProject.ViewModels.Site.Rezervasyonlar();
-            rezervasyon.MusteriId = musteri.Idno;
+            Rezervasyon rezervasyon = new Rezervasyon();
+            rezervasyon.MusteriId = musteri.Idno; 
             rezervasyon.OdaId = 1;
-
-            rezervasyon.OdaId = Convert.ToInt32(odatip);
-            rezervasyon.Pansiyonlar = Convert.ToInt32(pansiyon);
+            rezervasyon.GirisTarihi = girisTarih;
+            rezervasyon.CikisTarihi = cikisTarih;
+            rezervasyon.OdaTipId = Convert.ToInt32(odatip);
+            rezervasyon.Pansiyon = Convert.ToInt32(pansiyon);
             rezervasyon.Yetiskin = Convert.ToInt32(yetiskin);
             rezervasyon.Cocuk = Convert.ToInt32(cocuk);
-            c.Set<HotelProject.ViewModels.Site.Rezervasyonlar>().Add(rezervasyon);
+            rezervasyon.Act = 1;
+            rezervasyon.RandomKey = RandomString(6);
+            var odaTip = c.OdaTips.FirstOrDefault(x => x.Idno == Convert.ToInt32(odatip));
+            var pansiyons = c.Pansiyonlars.FirstOrDefault(x => x.Idno == Convert.ToInt32(pansiyon));
+
+            c.Set<Rezervasyon>().Add(rezervasyon);
             c.SaveChanges();
-            return RedirectToAction("Index");
+
+            return RedirectToAction("Rezervasyon", "Home", new { id = rezervasyon.Idno, key = rezervasyon.RandomKey });
         }
-        public IActionResult Privacy()
+        public IActionResult Rezervasyon(DateTime girisTarih, DateTime cikisTarih, string odatip, string pansiyon, string telefon, string yetiskin, string cocuk)
         {
+            Musteri mus = new Musteri();
+            Rezervasyon rez = new Rezervasyon();
+            rez.MusteriId = mus.Idno;
+            rez.OdaId = 1;
+            rez.GirisTarihi = girisTarih;
             return View();
         }
-
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
     }
 }

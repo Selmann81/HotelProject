@@ -20,7 +20,9 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Oda Detayları.</h3>
+                <h3 class="card-title">
+                  <a href="/Admin/Odalar/YeniOda" type="button"  class="btn btn-success">Oda Ekle</a>  @*<a style="margin-right: 4px;"  class="btn btn-tbl-edit btn-xs btn-secondary" title="Yeni Oda"></a>*@
+                </h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -49,7 +51,6 @@
                             <td class="center">@item.Ozellikler</td>
                             <td class="center">@item.Act</td>
                             <td class="center">
-                                <a style="margin-right: 4px;" href="/Admin/Odalar/YeniOda" class="btn btn-tbl-edit btn-xs btn-secondary" title="Yeni Oda"><i class="fa-solid fa-plus"></i></a>
                                 <a style="margin-right: 4px;" href="/Admin/Odalar/YeniOda/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa fa-pencil"></i></a>
                                 <a style="margin-right: 4px;" href="/Admin/Odalar/OdaSil/@item.Idno" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
                             </td>

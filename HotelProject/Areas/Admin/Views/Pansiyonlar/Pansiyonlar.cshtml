@@ -24,7 +24,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Pansiyon durumunu burdan görebilirsiniz.</h3>
+                    <a href="/Admin/Pansiyonlar/YeniPansiyon" type="button" class="btn btn-success">Pansiyon Ekle</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -45,9 +45,9 @@
                                 <td>@item.Baslik</td>
                                 <td>@item.Ucret</td>
                                 <td>
-                                    <a style="margin-right: 4px;" href="/Admin/Pansiyonlar/YeniPansiyon" class="btn btn-tbl-edit btn-xs btn-secondary" title="Ekle"><i class="fa-solid fa-plus"></i></a>
+                                    @*<a style="margin-right: 4px;" href="/Admin/Pansiyonlar/YeniPansiyon" class="btn btn-tbl-edit btn-xs btn-secondary" title="Ekle"><i class="fa-solid fa-plus"></i></a>*@
                                     <a style="margin-right: 4px;" href="/Admin/Pansiyonlar/YeniPansiyon/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-pencil"></i></a>
-                                    <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-danger" title="Sil"><i class="fa-solid fa-trash"></i></a>
+                                    <a style="margin-right: 4px;" href="/Admin/Pansiyonlar/PansiyonSil/@item.Idno" class="btn btn-tbl-edit btn-xs btn-danger" title="Sil"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                             }

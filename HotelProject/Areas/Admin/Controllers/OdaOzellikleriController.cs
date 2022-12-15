@@ -31,7 +31,7 @@ namespace HotelProject.Areas.Admin.Controllers
             if (ozellik != null)
                 return View(ozellik);
             else
-                return RedirectToAction("OdaOzellik", "Odalar");
+                return RedirectToAction("OdaOzellikleri", "OdaOzellikleri");
         }
         [HttpPost]
         public IActionResult YeniOzellik(OdaOzellik ozellik)
@@ -52,7 +52,11 @@ namespace HotelProject.Areas.Admin.Controllers
                 c.SaveChanges();
                 TempData["success"] = "Oda özelliği güncellendi";
             }
-            return RedirectToAction("OdaOzellik", "Odalar");
+            return RedirectToAction("OdaOzellikleri", "OdaOzellikleri");
         }
+
+
+
+
     }
 }

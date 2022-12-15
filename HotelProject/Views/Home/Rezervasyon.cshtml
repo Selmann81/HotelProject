@@ -1,0 +1,62 @@
+﻿@model Rezervasyon
+@{
+    ViewData["Title"] = "Rezervasyon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="section-padding gray-bg">
+    <div class="auto-container">
+        <div class="section_heading text-center mb_55">
+            <h2 class="section_heading_title_big">
+                Rezervasyon İşlemi
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="-alt form-alt2 center">
+                    <form method="post" asp-action="Rezervasyon" id="contact-form">
+                        <div class="row clearfix">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="form_name" value="" placeholder="Oda Tipi" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="text" name="form_name" value="" placeholder="Çıkış Tarihi" required autocomplete="off">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="form_name" value="" placeholder="Çıkış Tarihi" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="form_name" value="" placeholder="Telefon Numaranız" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="text" name="form_name" value="" placeholder="Telefon Numaranız" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="form_name" value="" placeholder="Telefon Numaranız" required>
+                            </div>
+
+
+                            @*<div class="form-group col-md-12">
+                                <textarea name="form_message" placeholder="Mesajınız"></textarea>
+                            </div>*@
+
+
+                            <div class="form-group col-md-6">
+                                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                <button class="btn-1" type="submit" data-loading-text="Please wait...">Rezervasyon Onayla <i class="flaticon-right-arrow-1"></i><span></span></button>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                <button class="btn-1" type="submit" data-loading-text="Please wait...">Rezervasyon İptal Et <i class="flaticon-right-arrow-1"></i><span></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -125,7 +125,6 @@ C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Odalar\Oda.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Odalar\OdaDetay.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\İletisim\İletisim.cshtml.g.cs
-C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Rezervasyon\Rezervasyon.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
@@ -170,5 +169,8 @@ C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OdaTipleri\YeniOdaTipi.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
-C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Pansiyonlar\YeniPansiyon.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OdaOzellikleri\YeniOzellik.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Pansiyonlar\YeniPansiyon.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\RezervasyonIslem.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Rezervasyonn\Rezervasyonn.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Rezervasyon.cshtml.g.cs

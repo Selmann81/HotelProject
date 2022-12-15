@@ -23,7 +23,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Oda Tipleri</h3>
+                    <a href="/Admin/OdaTipleri/YeniOdaTipi" type="button" class="btn btn-success">Oda Tip Ekle</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -44,7 +44,7 @@
                                     <td>@item.Baslik</td>
                                     <td>@item.Ucret</td>
                                     <td>
-                                        <a style="margin-right: 4px;" href="/Admin/OdaTipleri/YeniOdaTipi" class="btn btn-tbl-edit btn-xs btn-secondary" title="Ekle"><i class="fa-solid fa-plus"></i></a>
+                                        @*<a style="margin-right: 4px;" href="/Admin/OdaTipleri/YeniOdaTipi" class="btn btn-tbl-edit btn-xs btn-secondary" title="Ekle"><i class="fa-solid fa-plus"></i></a>*@
                                         <a style="margin-right: 4px;" href="/Admin/OdaTipleri/YeniOdaTipi/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-pencil"></i></a>
                                         <a style="margin-right: 4px;" href="/Admin/OdaTipleri/TipSil/@item.Idno" class="btn btn-tbl-edit btn-xs btn-danger" title="Sil"><i class="fa-solid fa-trash"></i></a>
                                     </td>

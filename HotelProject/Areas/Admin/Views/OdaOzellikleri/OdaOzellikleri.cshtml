@@ -25,7 +25,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Oda Tipleri</h3>
+                    <a href="/Admin/OdaOzellikleri/YeniOzellik" type="button" class="btn btn-success">Oda Özellik Ekle</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body col-md-10">
@@ -46,7 +46,7 @@
                                 <td>@item.Baslik</td>
                                 <td>@item.Ikon</td>
                                 <td>
-                                    <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-pencil"></i></a>
+                                    <a style="margin-right: 4px;" href="/Admin/OdaOzellikleri/YeniOzellik/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-pencil"></i></a>
                                     <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
