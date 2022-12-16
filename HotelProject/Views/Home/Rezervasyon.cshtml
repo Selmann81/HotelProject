@@ -19,30 +19,35 @@
                     <form method="post" asp-action="Rezervasyon" id="contact-form">
                         <div class="row clearfix">
                             <div class="form-group col-md-6">
-                                <input type="text" name="form_name" value="" placeholder="Oda Tipi" required>
+                                <input type="text" name="girisTarih" value="" placeholder="@Model.GirisTarihi" required>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <input type="text" name="form_name" value="" placeholder="Çıkış Tarihi" required autocomplete="off">
+                                <input type="text" name="cikisTarih" value="" placeholder="@Model.CikisTarihi" required autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="form_name" value="" placeholder="Çıkış Tarihi" required>
+                                <input type="text" name="telefon" value="" placeholder="telefon" required>
+                            </div><div class="form-group col-md-6">
+                                <input type="text" name="pansiyon" value="" placeholder="" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="form_name" value="" placeholder="Telefon Numaranız" required>
+                                <input type="text" name="odatip" value="" placeholder="Telefon Numaranız" required>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <input type="text" name="form_name" value="" placeholder="Telefon Numaranız" required>
+                                <input type="text" name="Yetiskin" value="" placeholder="Telefon Numaranız" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="form_name" value="" placeholder="Telefon Numaranız" required>
+                                <input type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
                             </div>
 
 
                             @*<div class="form-group col-md-12">
-                                <textarea name="form_message" placeholder="Mesajınız"></textarea>
-                            </div>*@
+                                    <textarea name="form_message" placeholder="Mesajınız"></textarea>
+                                </div>*@
 
 
                             <div class="form-group col-md-6">

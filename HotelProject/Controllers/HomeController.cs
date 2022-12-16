@@ -44,33 +44,41 @@ namespace HotelProject.Controllers
                 musteri.Telefon = telefon;
                 c.Set<Musteri>().Add(musteri);
                 c.SaveChanges();
-            }
-            Rezervasyon rezervasyon = new Rezervasyon();
-            rezervasyon.MusteriId = musteri.Idno; 
-            rezervasyon.OdaId = 1;
-            rezervasyon.GirisTarihi = girisTarih;
-            rezervasyon.CikisTarihi = cikisTarih;
-            rezervasyon.OdaTipId = Convert.ToInt32(odatip);
-            rezervasyon.Pansiyon = Convert.ToInt32(pansiyon);
-            rezervasyon.Yetiskin = Convert.ToInt32(yetiskin);
-            rezervasyon.Cocuk = Convert.ToInt32(cocuk);
-            rezervasyon.Act = 1;
-            rezervasyon.RandomKey = RandomString(6);
-            var odaTip = c.OdaTips.FirstOrDefault(x => x.Idno == Convert.ToInt32(odatip));
-            var pansiyons = c.Pansiyonlars.FirstOrDefault(x => x.Idno == Convert.ToInt32(pansiyon));
 
-            c.Set<Rezervasyon>().Add(rezervasyon);
+            }
+
+            string girisZamani = Convert.ToString(girisTarih);
+            string cikisZamani = Convert.ToString(cikisTarih);
+            TimeSpan girisCikisFarki = DateTime.Parse(cikisZamani).Subtract(DateTime.Parse(girisZamani));
+            string gunfarki = girisCikisFarki.ToString();
+            
+            Rezervasyon rezervasyons = new Rezervasyon();
+            rezervasyons.MusteriId = musteri.Idno;
+            rezervasyons.OdaId = 1;
+            rezervasyons.GirisTarihi = girisTarih;
+            rezervasyons.CikisTarihi = cikisTarih;
+            rezervasyons.OdaTipId = Convert.ToInt32(odatip);
+            rezervasyons.Pansiyon = Convert.ToInt32(pansiyon);
+            rezervasyons.Yetiskin = Convert.ToInt32(yetiskin);
+            rezervasyons.Cocuk = Convert.ToInt32(cocuk);
+            rezervasyons.Act = 1;
+            rezervasyons.RandomKey = RandomString(6);
+            var odaTip = c.OdaTips.FirstOrDefault(x => x.Idno == Convert.ToInt32(odatip));
+            var pansiyonlars = c.Pansiyonlars.FirstOrDefault(x => x.Idno == Convert.ToInt32(pansiyon));
+
+            double ucret = ((odaTip.Ucret) + (pansiyonlars.Ucret));
+            rezervasyons.Ucret = (girisCikisFarki.TotalDays * ucret) * (Convert.ToInt32(yetiskin));
+
+
+
+            c.Set<Rezervasyon>().Add(rezervasyons);
             c.SaveChanges();
 
-            return RedirectToAction("Rezervasyon", "Home", new { id = rezervasyon.Idno, key = rezervasyon.RandomKey });
+            return RedirectToAction("Rezervasyon", "Home", new { id = rezervasyons.Idno, key = rezervasyons.RandomKey });
         }
-        public IActionResult Rezervasyon(DateTime girisTarih, DateTime cikisTarih, string odatip, string pansiyon, string telefon, string yetiskin, string cocuk)
+        public IActionResult Rezervasyon(int idno)
         {
-            Musteri mus = new Musteri();
-            Rezervasyon rez = new Rezervasyon();
-            rez.MusteriId = mus.Idno;
-            rez.OdaId = 1;
-            rez.GirisTarihi = girisTarih;
+            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == idno);
             return View();
         }
         private static Random random = new Random();
