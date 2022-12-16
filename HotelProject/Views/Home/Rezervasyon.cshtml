@@ -19,14 +19,14 @@
                     <form method="post" asp-action="Rezervasyon" id="contact-form">
                         <div class="row clearfix">
                             <div class="form-group col-md-6">
-                                <input type="text" name="girisTarih" value="" placeholder="@Model.GirisTarihi" required>
+                                <input readonly type="text" name="girisTarih" value="" placeholder="@Model.GirisTarihi.Date" required>
                             </div>
 
                             <div class="form-group col-md-6">
                                 <input type="text" name="cikisTarih" value="" placeholder="@Model.CikisTarihi" required autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="telefon" value="" placeholder="telefon" required>
+                                <input type="text" name="telefon" value="" placeholder="@Model." required>
                             </div><div class="form-group col-md-6">
                                 <input type="text" name="pansiyon" value="" placeholder="" required>
                             </div>

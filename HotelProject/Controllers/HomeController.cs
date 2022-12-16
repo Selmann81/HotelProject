@@ -76,10 +76,15 @@ namespace HotelProject.Controllers
 
             return RedirectToAction("Rezervasyon", "Home", new { id = rezervasyons.Idno, key = rezervasyons.RandomKey });
         }
-        public IActionResult Rezervasyon(int idno)
+        public IActionResult Rezervasyon(int id ,string key)
         {
-            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == idno);
-            return View();
+            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey==key);
+            if (rez != null)
+            {
+                return View(rez);
+            }
+            else
+                return RedirectToAction("Index");
         }
         private static Random random = new Random();
         public static string RandomString(int length)
