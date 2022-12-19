@@ -1,6 +1,7 @@
 ﻿using HotelProject.Models;
 using HotelProject.ViewModels.Site;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -24,12 +25,12 @@ namespace HotelProject.Controllers
         public IActionResult deneme()
         {
             return View();
-        } 
+        }
         public IActionResult Index()
         {
             return View();
         }
-        
+
         [HttpPost]
         public IActionResult Index(DateTime girisTarih, DateTime cikisTarih, string odatip, string pansiyon, string telefon, string yetiskin, string cocuk)
         {
@@ -51,7 +52,7 @@ namespace HotelProject.Controllers
             string cikisZamani = Convert.ToString(cikisTarih);
             TimeSpan girisCikisFarki = DateTime.Parse(cikisZamani).Subtract(DateTime.Parse(girisZamani));
             string gunfarki = girisCikisFarki.ToString();
-            
+
             Rezervasyon rezervasyons = new Rezervasyon();
             rezervasyons.MusteriId = musteri.Idno;
             rezervasyons.OdaId = 1;
@@ -69,16 +70,29 @@ namespace HotelProject.Controllers
             double ucret = ((odaTip.Ucret) + (pansiyonlars.Ucret));
             rezervasyons.Ucret = (girisCikisFarki.TotalDays * ucret) * (Convert.ToInt32(yetiskin));
 
-
+            if (rezervasyons.Pansiyon == 1)
+            {
+                pansiyonlars.Baslik = "Tam Pansiyon";
+            }
+            if (rezervasyons.Pansiyon == 2)
+            {
+                pansiyonlars.Baslik = "Tam Pansiyon";
+            }
+            if (rezervasyons.Pansiyon == 3)
+            {
+                pansiyonlars.Baslik = "Tam Pansiyon";
+            }
 
             c.Set<Rezervasyon>().Add(rezervasyons);
             c.SaveChanges();
 
             return RedirectToAction("Rezervasyon", "Home", new { id = rezervasyons.Idno, key = rezervasyons.RandomKey });
         }
-        public IActionResult Rezervasyon(int id ,string key)
+        public IActionResult Rezervasyon(int id, string key)
         {
-            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey==key);
+            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey == key);
+            //VERİ TABANINDA Idno ve random keyi eşitse devam eder ve rez in içine atar tek veriyi alır ilk çıkan sorguyu al
+            Pansiyonlar pansiyon = new Pansiyonlar();
             if (rez != null)
             {
                 return View(rez);

@@ -5,7 +5,6 @@
 }
 
 
-
 <section class="section-padding gray-bg">
     <div class="auto-container">
         <div class="section_heading text-center mb_55">
@@ -19,29 +18,38 @@
                     <form method="post" asp-action="Rezervasyon" id="contact-form">
                         <div class="row clearfix">
                             <div class="form-group col-md-6">
-                                <input readonly type="text" name="girisTarih" value="" placeholder="@Model.GirisTarihi.Date" required>
+                                <input type="text" name="girisTarih" value="" placeholder="@Model.GirisTarihi.ToString("dd/MM/yyyy")" required>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <input type="text" name="cikisTarih" value="" placeholder="@Model.CikisTarihi" required autocomplete="off">
+                                <input readonly type="text" name="cikisTarih" value="" placeholder="" required autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="telefon" value="" placeholder="@Model." required>
-                            </div><div class="form-group col-md-6">
-                                <input type="text" name="pansiyon" value="" placeholder="" required>
+                                <input readonly type="text" name="telefon" value="" placeholder="@Model.CikisTarihi.ToString("dd/MM/yyyy")" required>
                             </div>
+                                <div class="form-group col-md-6">
+                                    <input readonly type="text" name="pansiyon" value="" placeholder="" required>
+                                </div>
+
                             <div class="form-group col-md-6">
-                                <input type="text" name="odatip" value="" placeholder="Telefon Numaranız" required>
+
+                                <input readonly type="text" name="odatip" value="" placeholder="@Model.Pansiyon" required>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <input type="text" name="Yetiskin" value="" placeholder="Telefon Numaranız" required>
+                                <input readonly type="text" name="Yetiskin" value="" placeholder="@Model.Pansiyon" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
+                                <input readonly type="text" name="cocuk" value="" placeholder="@Model.Pansiyon" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
+                                <input readonly type="text" name="cocuk" value="" placeholder="@Model.Pansiyon" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input readonly type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input readonly type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
                             </div>
 
 
