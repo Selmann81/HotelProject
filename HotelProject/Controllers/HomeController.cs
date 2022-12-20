@@ -70,35 +70,44 @@ namespace HotelProject.Controllers
             double ucret = ((odaTip.Ucret) + (pansiyonlars.Ucret));
             rezervasyons.Ucret = (girisCikisFarki.TotalDays * ucret) * (Convert.ToInt32(yetiskin));
 
-            if (rezervasyons.Pansiyon == 1)
-            {
-                pansiyonlars.Baslik = "Tam Pansiyon";
-            }
-            if (rezervasyons.Pansiyon == 2)
-            {
-                pansiyonlars.Baslik = "Tam Pansiyon";
-            }
-            if (rezervasyons.Pansiyon == 3)
-            {
-                pansiyonlars.Baslik = "Tam Pansiyon";
-            }
-
             c.Set<Rezervasyon>().Add(rezervasyons);
             c.SaveChanges();
-
+            
             return RedirectToAction("Rezervasyon", "Home", new { id = rezervasyons.Idno, key = rezervasyons.RandomKey });
         }
         public IActionResult Rezervasyon(int id, string key)
         {
             var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey == key);
             //VERİ TABANINDA Idno ve random keyi eşitse devam eder ve rez in içine atar tek veriyi alır ilk çıkan sorguyu al
-            Pansiyonlar pansiyon = new Pansiyonlar();
+            TempData["deger"] = "";
+
             if (rez != null)
             {
                 return View(rez);
             }
             else
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
+            
+        }
+        public IActionResult RezervasyonOnay(int id, int OdaId)
+        {
+            var dolumu = c.Rezervasyons.FirstOrDefault(x => x.Act == 2 && x.OdaId == OdaId);
+            if (dolumu == null)
+            {
+                var x = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
+                x.OdaId = OdaId;
+                x.Act = 2;
+                c.Set<Rezervasyon>().Update(x);
+                c.SaveChanges();
+                TempData["success"] = "Rezervasyon işlemi tamamlandı";
+            }
+            else
+            {
+                TempData["error"] = "Oda dolu! Lütfen başka bir oda seçiniz.";
+            }
+
+
+            return RedirectToAction("Index", "Rezervasyon");
         }
         private static Random random = new Random();
         public static string RandomString(int length)

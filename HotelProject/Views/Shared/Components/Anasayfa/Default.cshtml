@@ -1,5 +1,33 @@
 ﻿@model HotelProject.ViewModels.Site.HomeIndexVM
 
+@if (TempData["hakkimizdaGuncelle"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+
+
+        Swal.fire("İyi Tatiller!", "Rezervasyonunuz Başarıyla Gerçekleşti", "success");
+
+
+
+        //$('#btn1').click(function () {
+        //    swal("İyi Tatiller!", "Rezervasyonunuz Başarıyla Gerçekleşti", "success");
+        //});
+    </script>
+}
+@if (TempData["deger"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        setTimeout(loadAfterTime, 2000)
+        function loadAfterTime() {
+                swal("İyi Tatiller!", 'Rezervasyonunuz Başarıyla Oluşturulmuştur!', "success");
+        }
+    </script>
+}
+
 <body>
     <div class="page-wrapper">
         <div class="loader-wrap">
@@ -26,8 +54,8 @@
                                     </h1>
                                     <div class="text">Siz de tatiliniz için  <br> en iyisini istemez misiniz?</div>
                                     @*<div class="link-box">
-                                        <a onclick="asagiKaydir()" class="btn-1">Rezervasyon Yapın<span></span></a>
-                                    </div>*@
+                                            <a onclick="asagiKaydir()" class="btn-1">Rezervasyon Yapın<span></span></a>
+                                        </div>*@
                                 </div>
                             </div>
                         </div>
@@ -45,8 +73,8 @@
                                     </h1>
                                     <div class="text">Siz de tatiliniz için  <br> en iyisini istemez misiniz?</div>
                                     @*<div class="link-box">
-                                        <a href="room-1.html" class="btn-1">Rezervasyon Yapın <span></span></a>
-                                    </div>*@
+                                            <a href="room-1.html" class="btn-1">Rezervasyon Yapın <span></span></a>
+                                        </div>*@
                                 </div>
                             </div>
                         </div>
@@ -58,7 +86,6 @@
                 <div class="banner-slider-control banner-slider-button-next hvr-zoom-1 hvr-zoom-1-primary"><span><i class="icon-3"></i></span> </div>
             </div>
         </section>
-
         <div class="hotel-booking-form-1 gray-bg">
             <div class="auto-container">
                 <div class="hotel-booking-form-1-wrap">
@@ -115,7 +142,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn-1">Rezervasyon Yap<span></span></button>
+                            <button type="submit" id="" class="btn-1">Rezervasyon Yap<span></span></button>
                         </div>
                     </form>
                 </div>

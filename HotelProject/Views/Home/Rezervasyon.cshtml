@@ -5,6 +5,7 @@
 }
 
 
+
 <section class="section-padding gray-bg">
     <div class="auto-container">
         <div class="section_heading text-center mb_55">
@@ -12,64 +13,55 @@
                 Rezervasyon İşlemi
             </h2>
         </div>
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="-alt form-alt2 center">
-                    <form method="post" asp-action="Rezervasyon" id="contact-form">
-                        <div class="row clearfix">
-                            <div class="form-group col-md-6">
-                                <input type="text" name="girisTarih" value="" placeholder="@Model.GirisTarihi.ToString("dd/MM/yyyy")" required>
-                            </div>
+        <table class="table">
+            <thead>
+                <tr>
 
-                            <div class="form-group col-md-6">
-                                <input readonly type="text" name="cikisTarih" value="" placeholder="" required autocomplete="off">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input readonly type="text" name="telefon" value="" placeholder="@Model.CikisTarihi.ToString("dd/MM/yyyy")" required>
-                            </div>
-                                <div class="form-group col-md-6">
-                                    <input readonly type="text" name="pansiyon" value="" placeholder="" required>
-                                </div>
+                    <th scope="col">#</th>
+                    <th scope="col">Giriş Tarihi</th>
+                    <th scope="col">Çıkış Tarihi</th>
+                    <th scope="col">Pansiyon</th>
+                    <th scope="col">Odalar</th>
+                    <th scope="col">Ücret</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Idno</td>
+                    <td>@Model.GirisTarihi.ToString("dd/MM/yyyy")</td>
+                    <td>@Model.CikisTarihi.ToString("dd/MM/yyyy")</td>
+                    <td>@Model.Pansiyon</td>
+                    <td>@Model.OdaId</td>
+                    <td>@Model.Ucret</td>
+                </tr>
+            </tbody>
 
-                            <div class="form-group col-md-6">
+        </table>
 
-                                <input readonly type="text" name="odatip" value="" placeholder="@Model.Pansiyon" required>
-                            </div>
+        <button id="btn1" name="onayla" class="btn btn-success" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon Onayla</button>
 
-                            <div class="form-group col-md-6">
-                                <input readonly type="text" name="Yetiskin" value="" placeholder="@Model.Pansiyon" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input readonly type="text" name="cocuk" value="" placeholder="@Model.Pansiyon" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input readonly type="text" name="cocuk" value="" placeholder="@Model.Pansiyon" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input readonly type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input readonly type="text" name="cocuk" value="" placeholder="Telefon Numaranız" required>
-                            </div>
+        @*@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { Act = "0" }))
+        {
+            <input type="submit" value="Click Me!" />
+        }
+        <input class="form-control" placeholder="@Model.Act">
+        <button name="iptal et" class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon İptal Et</button>*@
 
-
-                            @*<div class="form-group col-md-12">
-                                    <textarea name="form_message" placeholder="Mesajınız"></textarea>
-                                </div>*@
-
-
-                            <div class="form-group col-md-6">
-                                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                                <button class="btn-1" type="submit" data-loading-text="Please wait...">Rezervasyon Onayla <i class="flaticon-right-arrow-1"></i><span></span></button>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                                <button class="btn-1" type="submit" data-loading-text="Please wait...">Rezervasyon İptal Et <i class="flaticon-right-arrow-1"></i><span></span></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
+
+<script>
+
+    $(".category").click(function () {
+        //First
+        var firstValue = $(this).attr(@Model.Act);
+        alert("First value= " + firstValue);
+        //Second
+        //Attr data change
+        $(this).attr(@Model.Act, 0);
+        //Get data-status
+        var secondValue = $(this).attr(@Model.Act);
+        alert("Last value= " + secondValue);
+    });
+
+</script>
