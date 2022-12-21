@@ -1,6 +1,6 @@
 ﻿@model HotelProject.ViewModels.Site.HomeIndexVM
 
-@if (TempData["hakkimizdaGuncelle"] != null)
+@if (TempData["hata"] != null)
 {
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -16,14 +16,25 @@
         //});
     </script>
 }
-@if (TempData["deger"] != null)
+@if (TempData["iptal"] != null)
 {
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
-        setTimeout(loadAfterTime, 2000)
+        setTimeout(loadAfterTime, 1500)
         function loadAfterTime() {
-                swal("İyi Tatiller!", 'Rezervasyonunuz Başarıyla Oluşturulmuştur!', "success");
+            swal('Rezervasyonunuz Başarıyla Oluşturulmuştur!', "İyi Tatiller!", "success");
+        }
+    </script>
+}
+@if (TempData["onay"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        setTimeout(loadAfterTime, 1500)
+        function loadAfterTime() {
+            swal('Rezervasyonunuz Başarıyla Oluşturulmuştur!', "İyi Tatiller!", "success");
         }
     </script>
 }
@@ -100,7 +111,7 @@
                         </div>
 
                         <div class="form-group">
-                            <p class="hotel-booking-form-1-label text-lg-center">Telefon No:</p>
+                            <p class="hotel-booking-form-1-label text-lg-center">Telefon No</p>
                             <input placeholder="Telefon No" class="" minlength="8" maxlength="20" type="tel" name="telefon" autocomplete="off">
                         </div>
                         <div class="form-group">
@@ -122,7 +133,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <p class="hotel-booking-form-1-label text-lg-center">Yetişkin;</p>
+                            <p class="hotel-booking-form-1-label text-lg-center">Yetişkin</p>
                             <select name="Yetiskin">
                                 <option value="1">1 Yetişkin</option>
                                 <option value="2">2 Yetişkin</option>
@@ -132,7 +143,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <p class="hotel-booking-form-1-label text-lg-center">Çocuk:</p>
+                            <p class="hotel-booking-form-1-label text-lg-center">Çocuk</p>
                             <select name="cocuk">
                                 <option value="1">1 Çocuk</option>
                                 <option value="2">2 Çocuk</option>

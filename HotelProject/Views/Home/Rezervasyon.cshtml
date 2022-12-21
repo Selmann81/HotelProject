@@ -20,8 +20,6 @@
                     <th scope="col">#</th>
                     <th scope="col">Giriş Tarihi</th>
                     <th scope="col">Çıkış Tarihi</th>
-                    <th scope="col">Pansiyon</th>
-                    <th scope="col">Odalar</th>
                     <th scope="col">Ücret</th>
                 </tr>
             </thead>
@@ -30,28 +28,29 @@
                     <td>@Model.Idno</td>
                     <td>@Model.GirisTarihi.ToString("dd/MM/yyyy")</td>
                     <td>@Model.CikisTarihi.ToString("dd/MM/yyyy")</td>
-                    <td>@Model.Pansiyon</td>
-                    <td>@Model.OdaId</td>
                     <td>@Model.Ucret</td>
                 </tr>
             </tbody>
 
         </table>
 
-        <button id="btn1" name="onayla" class="btn btn-success" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon Onayla</button>
+
+       
+        <a  href="Rezervasyon" id="btn1" name="onayla" data-idno="@Model.Idno" class="btn btn-success">Rezervasyon Onayla</a>
+        
 
         @*@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { Act = "0" }))
         {
             <input type="submit" value="Click Me!" />
         }
-        <input class="form-control" placeholder="@Model.Act">
-        <button name="iptal et" class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon İptal Et</button>*@
+        <input class="form-control" placeholder="@Model.Act">*@
+
+        <button id="deneme" name="iptal et" class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon İptal Et</button>
 
     </div>
 </section>
 
 <script>
-
     $(".category").click(function () {
         //First
         var firstValue = $(this).attr(@Model.Act);
@@ -63,5 +62,4 @@
         var secondValue = $(this).attr(@Model.Act);
         alert("Last value= " + secondValue);
     });
-
 </script>
