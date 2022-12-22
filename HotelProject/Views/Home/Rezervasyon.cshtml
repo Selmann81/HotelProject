@@ -35,22 +35,24 @@
         </table>
 
 
-       
-        <a  href="Rezervasyon" id="btn1" name="onayla" data-idno="@Model.Idno" class="btn btn-success">Rezervasyon Onayla</a>
-        
+
+        <a href="~/home/rezervasyonOnay/@Model.Idno && @Model.RandomKey" id="btn1" name="onayla" class="btn btn-success">Rezervasyon Onayla</a>
+
 
         @*@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { Act = "0" }))
         {
             <input type="submit" value="Click Me!" />
         }
         <input class="form-control" placeholder="@Model.Act">*@
+        <a href="~/home/rezervasyoniptal/@Model.Idno && @Model.RandomKey" id="btn1" name="iptal" class="btn btn-danger">Rezervasyon İptal</a>
 
-        <button id="deneme" name="iptal et" class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon İptal Et</button>
+
+        @*<button id="deneme" name="iptal et" class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon İptal Et</button>*@
 
     </div>
 </section>
 
-<script>
+@*<script>
     $(".category").click(function () {
         //First
         var firstValue = $(this).attr(@Model.Act);
@@ -62,4 +64,4 @@
         var secondValue = $(this).attr(@Model.Act);
         alert("Last value= " + secondValue);
     });
-</script>
+</script>*@
