@@ -66,9 +66,9 @@ namespace HotelProject.Controllers
             rezervasyons.RandomKey = RandomString(6);
             var odaTip = c.OdaTips.FirstOrDefault(x => x.Idno == Convert.ToInt32(odatip));
             var pansiyonlars = c.Pansiyonlars.FirstOrDefault(x => x.Idno == Convert.ToInt32(pansiyon));
-
+            var yaricocuk = Convert.ToInt32(cocuk) / 2;
             double ucret = ((odaTip.Ucret) + (pansiyonlars.Ucret));
-            rezervasyons.Ucret = (girisCikisFarki.TotalDays * ucret) * (Convert.ToInt32(yetiskin));
+            rezervasyons.Ucret = (girisCikisFarki.TotalDays * ucret) * ((Convert.ToInt32(yetiskin)) + (Convert.ToInt32(yaricocuk)));
 
             c.Set<Rezervasyon>().Add(rezervasyons);
             c.SaveChanges();
@@ -78,21 +78,10 @@ namespace HotelProject.Controllers
         public IActionResult Rezervasyon(int id, string key/*, int onay*/)
         {
             //VERİ TABANINDA Idno ve random keyi eşitse devam eder ve rez in içine atar tek veriyi alır ilk çıkan sorguyu 
+
             var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey == key /*&& x.Act==onay*/);
-            //if (onay==1)
-            //{
-            //    onay = 1;
-            //    c.Set<Rezervasyon>().Update(rez);
-            //    c.SaveChanges();
-            //    TempData["onay"] = "";
-            //}
-            // if (onay==0)
-            //{
-            //    rez.Act = 1;
-            //    c.Set<Rezervasyon>().Update(rez);
-            //    c.SaveChanges();
-            //    TempData["iptal"] = "";
-            //}
+
+
 
             if (rez != null)
             {
@@ -102,22 +91,31 @@ namespace HotelProject.Controllers
                 return RedirectToAction("Index", "Home");
 
         }
-        public IActionResult RezervasyonOnay(int id, string key)
+        public IActionResult RezervasyonOnay(int id,string key)
         {
-            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey == key);
+            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey==key);
+            if (rez==null)
+            {
+                TempData["onay"] = "";
+                return RedirectToAction("Index", "Home");
+            }
             rez.Act = 1;
             c.Set<Rezervasyon>().Update(rez);
             c.SaveChanges();
             TempData["onay"] = "";
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult RezervasyonIptal(int id, string key)
+        public IActionResult RezervasyonIptal(int id,string key)
         {
             var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey == key);
+            if (rez == null)
+            {
+                TempData["onay"] = "";
+                return RedirectToAction("Index", "Home");
+            }
             rez.Act = 0;
             c.Set<Rezervasyon>().Update(rez);
             c.SaveChanges();
-            TempData["iptal"] = "";
             return RedirectToAction("Index", "Home");
         }
         private static Random random = new Random();

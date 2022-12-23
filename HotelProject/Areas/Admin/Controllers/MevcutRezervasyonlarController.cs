@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HotelProject.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,17 @@ namespace HotelProject.Areas.Admin.Controllers
     [Area("Admin")]
     public class MevcutRezervasyonlarController : Controller
     {
+        private readonly SiteContext c;
+        public MevcutRezervasyonlarController(SiteContext c)
+        {
+            this.c = c;
+        }
         public IActionResult MevcutRezervasyonlar()
         {
-            return View();
+            {
+                var list = c.Rezervasyons.Where(x => x.Act != 0).ToList();
+                return View(list);
+            }
         }
     }
 }

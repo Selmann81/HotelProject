@@ -163,7 +163,6 @@ C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OdaTipleri\OdaTipleri.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Pansiyonlar\Pansiyonlar.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OdaOzellikleri\OdaOzellikleri.cshtml.g.cs
-C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\YeniMusteri\YeniMusteri.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Admin\deneme.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Odalar\YeniOda.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\OdaTipleri\YeniOdaTipi.cshtml.g.cs
@@ -174,3 +173,5 @@ C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\RezervasyonIslem.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Rezervasyonn\Rezervasyonn.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Rezervasyon.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Musteriler\YeniMusteri.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Rezervasyon\Index.cshtml.g.cs

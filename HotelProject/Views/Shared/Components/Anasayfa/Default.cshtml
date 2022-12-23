@@ -1,21 +1,5 @@
 ﻿@model HotelProject.ViewModels.Site.HomeIndexVM
 
-@if (TempData["hata"] != null)
-{
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-
-
-        Swal.fire("İyi Tatiller!", "Rezervasyonunuz Başarıyla Gerçekleşti", "success");
-
-
-
-        //$('#btn1').click(function () {
-        //    swal("İyi Tatiller!", "Rezervasyonunuz Başarıyla Gerçekleşti", "success");
-        //});
-    </script>
-}
 @if (TempData["iptal"] != null)
 {
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -103,16 +87,16 @@
                     <form asp-action="Index" method="post" class="hotel-booking-form-1-form flex-grow-1 d-flex align-items-end">
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Giriş:</p>
-                            <input placeholder="17 Sep, 2022" class="" type="text" name="girisTarih" id="nd_booking_archive_form_date_range_from" value="" autocomplete="off" />
+                            <input class="" type="text" name="girisTarih" id="nd_booking_archive_form_date_range_from" value="" autocomplete="off" style="padding: 0 20px;" />
                         </div>
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Çıkış:</p>
-                            <input placeholder="21 Sep, 2022" class="" type="text" name="cikisTarih" id="nd_booking_archive_form_date_range_to" value="" autocomplete="off" />
+                            <input class="" type="text" name="cikisTarih" id="nd_booking_archive_form_date_range_to" value="" autocomplete="off" style="padding: 0 20px;" />
                         </div>
 
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Telefon No</p>
-                            <input placeholder="Telefon No" class="" minlength="8" maxlength="20" type="tel" name="telefon" autocomplete="off">
+                            <input placeholder="Telefon No" class="" minlength="8" maxlength="20" type="tel" name="telefon" autocomplete="off" style="padding: 0 5px;">
                         </div>
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Pansiyon</p>
@@ -145,11 +129,11 @@
                         <div class="form-group">
                             <p class="hotel-booking-form-1-label text-lg-center">Çocuk</p>
                             <select name="cocuk">
+                                <option value="0">Çocuk Yok</option>
                                 <option value="1">1 Çocuk</option>
                                 <option value="2">2 Çocuk</option>
                                 <option value="3">3 Çocuk</option>
                                 <option value="4">4 Çocuk</option>
-                                <option value="5">5 Çocuk</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -212,11 +196,11 @@
                             <span class="section_heading_title_small">Royalking Hakkında</span>
                             <h2 class="section_heading_title_big">Lüks <br> Otelimiz Antalya'nın <br>Güzel Sahillerinden Birindedir</h2>
                         </div>
-                        <p class="aboout-1-desc mb_30">
+                        <p class="aboout-1-desc mb_30">d
                             Otelimiz lüks standartlarının en üstünde olup hizmetimizde sınır yoktur.
                         </p>
                         <div class="about-1-btn mb_30">
-                            <a href="about.html" class="btn-1">Daha fazlası<span></span></a>
+                            <a href="~/About/Index" class="btn-1">Daha fazlası<span></span></a>
                         </div>
                     </div>
                 </div>
@@ -237,7 +221,7 @@
                                 <img src="~/assets/images/resource/room-1.jpg" alt="">
                             </div>
                             <div class="room-1-content">
-                                <p class="room-1-meta-info">Başlayan fiyatlarla <span class="theme-color">$55.0</span>/geceliği</p>
+                                <p class="room-1-meta-info">Geceliği <span class="theme-color">100₺</span>'den başlayan fiyatlarla</p>
                                 <div class="room-1-rating">
                                     <i class="icon-6"></i>
                                     <i class="icon-6"></i>
@@ -245,19 +229,21 @@
                                     <i class="icon-6"></i>
                                     <i class="icon-7"></i>
                                 </div>
-                                <h4 class="room-1-title mb_20"><a href="room-details.html">Lüx Oda</a></h4>
-                                <p class="room-1-text mb_30">Lüks içinde kalabileceğiniz harika bir oda</p>
-                                <div class="link-btn"><a href="room-details.html" class="btn-1 btn-alt">Rezervasyon Yapın <span></span></a></div>
+                                <h4 class="room-1-title mb_20"><a href="room-details.html">Single room</a></h4>
+                                <p class="room-1-text mb_30">
+                                    Tek kişilik odalardır. İçerisinde tek kişilik ya da bir büyük çift kişilik yatak bulunur.
+                                </p>
+                                <div class="link-btn"><a href="~/Odalar/Oda" class="btn-1 btn-alt">Odalarımız<span></span></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <div class="room-1-block wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.2s">
+                        <div class="room-1-block wow fadeInUp" data-wow-delay=".2s" data-wow-duration=".8s">
                             <div class="room-1-image hvr-img-zoom-1">
-                                <img src="~/assets/images/resource/room-2.jpg" alt="">
+                                <img src="~/assets/images/resource/room-11.jpg" alt="">
                             </div>
                             <div class="room-1-content">
-                                <p class="room-1-meta-info">Başlayan fiyatlarla <span class="theme-color">$55.0</span>/geceliği</p>
+                                <p class="room-1-meta-info">Geceliği <span class="theme-color">800₺</span>'den başlayan fiyatlarla</p>
                                 <div class="room-1-rating">
                                     <i class="icon-6"></i>
                                     <i class="icon-6"></i>
@@ -265,29 +251,31 @@
                                     <i class="icon-6"></i>
                                     <i class="icon-7"></i>
                                 </div>
-                                <h4 class="room-1-title mb_20"><a href="room-details.html">Delux Room</a></h4>
-                                <p class="room-1-text mb_30">Rüya gibi bir oda isterseniz burası size göre.</p>
-                                <div class="link-btn"><a href="room-details.html" class="btn-1 btn-alt">Rezervasyon Yapın<span></span></a></div>
+                                <h4 class="room-1-title mb_20"><a href="room-details.html">Quad Room</a></h4>
+                                <p class="room-1-text mb_30">Dört kişinin konaklayabileceği odalardır. Bir çift kişilik ve iki tek kişilik yatak bulunur.</p>
+                                <div class="link-btn"><a href="~/Odalar/Oda" class="btn-1 btn-alt">Odalarımız<span></span></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="room-1-block wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.5s">
                             <div class="room-1-image hvr-img-zoom-1">
-                                <img src="~/assets/images/resource/room-3.jpg" alt="">
+                                <img src="~/assets/images/resource/room-13.jpg" alt="">
                             </div>
                             <div class="room-1-content">
-                                <p class="room-1-meta-info">Start from <span class="theme-color">$55.0</span>/night</p>
+                                <p class="room-1-meta-info">Geceliği <span class="theme-color">2000₺</span>'den başlayan fiyatlarla</p>
                                 <div class="room-1-rating">
                                     <i class="icon-6"></i>
                                     <i class="icon-6"></i>
                                     <i class="icon-6"></i>
                                     <i class="icon-6"></i>
-                                    <i class="icon-7"></i>
+                                    <i class="icon-6"></i>
                                 </div>
-                                <h4 class="room-1-title mb_20"><a href="room-details.html">Luxury Room</a></h4>
-                                <p class="room-1-text mb_30">Otelin en şatafatlı odasında harika bir zaman geçirmek isterseniz burası size göre.</p>
-                                <div class="link-btn"><a href="room-details.html" class="btn-1 btn-alt">Rezervasyon Yapın <span></span></a></div>
+                                <h4 class="room-1-title mb_20"><a href="room-details.html">King Suite</a></h4>
+                                <p class="room-1-text mb_30">
+                                    Oturma odası, mutfak ve banyodan oluşan oldukça geniş lüks odalardır.
+                                </p>
+                                <div class="link-btn"><a href="~/Odalar/Oda" class="btn-1 btn-alt">Odalarımız<span></span></a></div>
                             </div>
                         </div>
                     </div>
@@ -492,7 +480,7 @@
                     <h2 class="section_heading_title_big alt">Tatil için rahatlatıcı bir <br>Ülke mi arıyorsunuz?</h2>
                 </div>
                 <div class="text-center">
-                    <div class="cta-1-link-bt"><a href="javascript:void(0);" class="btn-1">Durumu Kontrol Et<span></span></a></div>
+                    <div  class="cta-1-link-bt"><a href="javascript:void(0);" class="btn-1">Durumu Kontrol Et<span></span></a></div>
                 </div>
             </div>
         </section>

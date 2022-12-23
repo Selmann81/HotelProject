@@ -3,6 +3,17 @@
     ViewData["Title"] = "YeniMusteri";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@if (TempData["success"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        setTimeout(loadAfterTime, 1500)
+        function loadAfterTime() {
+            swal('Rezervasyonunuz Başarıyla Oluşturulmuştur!', "İyi Tatiller!", "success");
+        }
+    </script>
+}
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -30,34 +41,34 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="tckimlik">Tc Kimlik Numarası</label>
-                                <input type="number" class="form-control" id="inputEmail4" placeholder="TC Kimlik No" asp-for="TcNo">
+                                <input type="number" class="form-control" id="inputEmail4" placeholder="TC Kimlik No" asp-for="TcNo" autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="adsoyad">Adı Soyadı</label>
-                                <input type="text" class="form-control" id="adsoyad" placeholder="Adı Soyadı" asp-for="Adisoyadi">
+                                <input type="text" class="form-control" id="adsoyad" placeholder="Adı Soyadı" asp-for="Adisoyadi" autocomplete="off">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Uyruk</label>
-                                <input type="text" class="form-control" id="uyruk" placeholder="Uyruk" asp-for="Uyruk">
+                                <input type="text" class="form-control" id="uyruk" placeholder="Uyruk" asp-for="Uyruk" autocomplete="off">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputPassword4">Doğum Tarihi</label>
-                                <input type="date" class="form-control" id="inputPassword4" placeholder="Gün/Ay/Yıl" asp-for="DogumTarihi">
+                                <input type="date" class="form-control" id="inputPassword4" placeholder="Gün/Ay/Yıl" asp-for="DogumTarihi" autocomplete="off">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="inputCity">Telefon</label>
-                                <input type="number" class="form-control" id="inputCity" placeholder="Telefon" asp-for="Telefon">
+                                <input type="number" class="form-control" id="inputCity" placeholder="Telefon" asp-for="Telefon" autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group">
                         </div>
 
                         <div class="col-lg-6 p-t-20">
-                            <input type="hidden" asp-for="Idno"/>
+                            <input type="hidden" asp-for="Idno" />
                         </div>
 
                         <button type="submit" class="btn btn-primary">Kaydet</button>

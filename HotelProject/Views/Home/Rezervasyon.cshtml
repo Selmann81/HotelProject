@@ -17,7 +17,7 @@
             <thead>
                 <tr>
 
-                    <th scope="col">#</th>
+                    <th scope="col">Rezervasyon Kodu</th>
                     <th scope="col">Giriş Tarihi</th>
                     <th scope="col">Çıkış Tarihi</th>
                     <th scope="col">Ücret</th>
@@ -28,15 +28,14 @@
                     <td>@Model.Idno</td>
                     <td>@Model.GirisTarihi.ToString("dd/MM/yyyy")</td>
                     <td>@Model.CikisTarihi.ToString("dd/MM/yyyy")</td>
-                    <td>@Model.Ucret</td>
+                    <td>@Model.Ucret.ToString("N2")</td>
                 </tr>
             </tbody>
-
         </table>
 
 
 
-        <a href="~/home/rezervasyonOnay/@Model.Idno && @Model.RandomKey" id="btn1" name="onayla" class="btn btn-success">Rezervasyon Onayla</a>
+        <a href="~/home/rezervasyonOnay?id=@Model.Idno&key=@Model.RandomKey" id="btn1" name="onayla" class="btn btn-success">Rezervasyon Onayla</a>
 
 
         @*@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { Act = "0" }))
@@ -44,7 +43,7 @@
             <input type="submit" value="Click Me!" />
         }
         <input class="form-control" placeholder="@Model.Act">*@
-        <a href="~/home/rezervasyoniptal/@Model.Idno && @Model.RandomKey" id="btn1" name="iptal" class="btn btn-danger">Rezervasyon İptal</a>
+        <a href="~/home/rezervasyoniptal?id=@Model.Idno&key=@Model.RandomKey" id="btn1" name="iptal" class="btn btn-danger">Rezervasyon İptal</a>
 
 
         @*<button id="deneme" name="iptal et" class="btn btn-danger" type="button" onclick="location.href='@Url.Action("Index","Home")'">Rezervasyon İptal Et</button>*@
