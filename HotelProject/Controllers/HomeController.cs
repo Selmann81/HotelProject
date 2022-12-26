@@ -96,13 +96,13 @@ namespace HotelProject.Controllers
             var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey==key);
             if (rez==null)
             {
-                TempData["onay"] = "";
+                TempData["success"] = "Rezervasyon Başarıyla Oluşturulmuştur";
                 return RedirectToAction("Index", "Home");
             }
             rez.Act = 1;
             c.Set<Rezervasyon>().Update(rez);
             c.SaveChanges();
-            TempData["onay"] = "";
+            TempData["success"] = "Rezervasyon Başarıyla Oluşturulmuştur";
             return RedirectToAction("Index", "Home");
         }
         public IActionResult RezervasyonIptal(int id,string key)
@@ -110,12 +110,13 @@ namespace HotelProject.Controllers
             var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.RandomKey == key);
             if (rez == null)
             {
-                TempData["onay"] = "";
+                TempData["success"] = "Rezervasyon Başarıyla İptal Edilmiştir";
                 return RedirectToAction("Index", "Home");
             }
             rez.Act = 0;
             c.Set<Rezervasyon>().Update(rez);
             c.SaveChanges();
+            TempData["success"] = "Rezervasyon Başarıyla İptal Edilmiştir";
             return RedirectToAction("Index", "Home");
         }
         private static Random random = new Random();

@@ -1,104 +1,107 @@
-﻿@model List<HotelProject.Models.Rezervasyon>
+﻿@model HotelProject.ViewModels.Site.RezervasyonDetayViewModel
 @{
     ViewData["Title"] = "MevcutRezervasyonlar";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Mevcut Rezervasyonlar</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
-<!-- Main content -->
-<section class="content">
-    <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            Rezervasyon Detay
+        </h3>
+    </div>
+    <div class="page-content-wrapper">
+        <div class="page-content">
 
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Mevcut bulunan rezervasyonları bu tablodan görebilirsiniz.</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Idno</th>
-                            <th>Giriş Tarihi</th>
-                            <th>Çıkış Tarihi</th>
-                            <th>Ücret</th>
-                            <th>Kişi</th>
-                            <th>Pansiyon</th>
-                            <th>Durum</th>
-                            <th>İşlem</th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                        <tr>
-                            <td>@item.Idno</td>
-                            <td>@item.GirisTarihi.ToString("dd/MM/yyyy")</td>
-                            <td>@item.CikisTarihi.ToString("dd/MM/yyyy")</td>
-                            <td>@item.Ucret</td>
-                            <td>@item.Yetiskin Yetişkin @item.Cocuk Çocuk</td>
-                            <td>Sadece Oda</td>
-                            <td>Beklemede</td>
-                            <td>
-                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa fa-pencil"></i></a>
-                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-magnifying-glass"></i></a>
-                                <a style="margin-right: 4px;" href="/yonetim/Odalar/YeniOda/1" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-            @*<div class="modal fade rezOnayla" id="rezOnayla" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <form action="~/yonetim/rezervasyon/RezervasyonOnay" method="post">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="exampleModalLabel">Rezervasyon</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            Oda Seçin
-                                        </div>
-                                        <div class="col-md-6">
-                                            @Html.DropDownList("OdaId", (List<SelectListItem>)ViewBag.odaListe, new { @class = "form-control", tabindex = "2" })
-                                        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-box">
+                        <div class="card-head">
+                        </div>
+                        <div class="card-body ">
+                            <div id="biography">
+                                <div class="row">
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Oda No</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.OdaAdi</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Oda Adı</strong>
+                                        <br>
+                                        <p class="text-muted">adsasd</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Pansiyon</strong>
+                                        <br>
+                                        <p class="text-muted">adssad</p>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <strong>Oda Tipi</strong>
+                                        <br>
+                                        <p class="text-muted">asd</p>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <input type="hidden" id="OnayId" name="id" />
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        İptal
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">Rezervasyonu Onayla</button>
+                                <div class="row">
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Giriş Tarihi</strong>
+                                        <br>
+                                        <p class="text-muted">asdsdaasd</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Çıkış Tarihi</strong>
+                                        <br>
+                                        <p class="text-muted">ads</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Ücret</strong>
+                                        <br>
+                                        <p class="text-muted">dasasd</p>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <strong>Ek Ücret</strong>
+                                        <br>
+                                        <p class="text-muted">asdasdsda</p>
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="row">
+                                    <div class="col-md-12 col-12 b-r">
+                                        <strong>Açıklama</strong>
+                                        <br>
+                                        <p class="text-muted">asdasdsda</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row mt-3">
+                                    
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Uyruk</strong>
+                                        <br>
+                                        <p class="text-muted">adssdasda</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Kimlik No</strong>
+                                        <br>
+                                        <p class="text-muted">asdasdsad</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Adı Soyadı - Telefon</strong>
+                                        <br>
+                                        <p class="text-muted">asdasdads</p>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <strong>Dogum Tarihi</strong>
+                                        <br>
+                                        <p class="text-muted">asdsadsda</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>*@
+                </div>
+            </div>
         </div>
-        <!-- /.content-wrapper -->
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
-</section>
+</div>
+
 

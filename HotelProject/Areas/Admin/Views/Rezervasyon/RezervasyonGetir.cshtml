@@ -1,0 +1,106 @@
+﻿@model HotelProject.ViewModels.Site.RezervasyonDetayViewModel
+@{
+    ViewData["Title"] = "RezervasyonGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            Rezervasyon Detay
+        </h3>
+    </div>
+    <div class="page-content-wrapper">
+        <div class="page-content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-box">
+                        <div class="card-head">
+                        </div>
+                        <div class="card-body ">
+                            <div id="biography">
+                                <div class="row">
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Oda No</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.OdaNo</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Oda Adı</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.OdaAdi</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Pansiyon</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.Pansiyon</p>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <strong>Oda Tipi</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.OdaTipi</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Giriş Tarihi</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.GirisTarihi.ToString("dd MMMM yyyy HH:mm")</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Çıkış Tarihi</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.CikisTarihi.ToString("dd MMMM yyyy HH:mm")</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Ücret</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.Ucret</p>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <strong>Ek Ücret</strong>
+                                        <br>
+                                        <p class="text-muted">Ucret</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-12 b-r">
+                                        <strong>Açıklama</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.Aciklama</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row mt-3">
+
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Uyruk</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.MusteriViewModel.Uyruk</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Kimlik No</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.MusteriViewModel.TCNo</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 b-r">
+                                        <strong>Adı Soyadı - Telefon</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.MusteriViewModel.AdiSoyadi - @Model.MusteriViewModel.Telefon </p>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <strong>Dogum Tarihi</strong>
+                                        <br>
+                                        <p class="text-muted">@Model.MusteriViewModel.DogumTarihi.ToString("dd MMMM yyyy")</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

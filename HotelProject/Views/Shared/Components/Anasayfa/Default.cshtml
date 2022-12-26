@@ -1,6 +1,21 @@
 ﻿@model HotelProject.ViewModels.Site.HomeIndexVM
 
-@if (TempData["iptal"] != null)
+
+@if (TempData["success"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Başarılı',
+                confirmButtonText:'Tamam',
+                text: '@Html.Raw(TempData["success"])'
+            })
+    </script>
+}
+
+@*@if (TempData["iptal"] != null)
 {
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -21,7 +36,7 @@
             swal('Rezervasyonunuz Başarıyla Oluşturulmuştur!', "İyi Tatiller!", "success");
         }
     </script>
-}
+}*@
 
 <body>
     <div class="page-wrapper">
@@ -196,7 +211,7 @@
                             <span class="section_heading_title_small">Royalking Hakkında</span>
                             <h2 class="section_heading_title_big">Lüks <br> Otelimiz Antalya'nın <br>Güzel Sahillerinden Birindedir</h2>
                         </div>
-                        <p class="aboout-1-desc mb_30">d
+                        <p class="aboout-1-desc mb_30">
                             Otelimiz lüks standartlarının en üstünde olup hizmetimizde sınır yoktur.
                         </p>
                         <div class="about-1-btn mb_30">
@@ -480,7 +495,7 @@
                     <h2 class="section_heading_title_big alt">Tatil için rahatlatıcı bir <br>Ülke mi arıyorsunuz?</h2>
                 </div>
                 <div class="text-center">
-                    <div  class="cta-1-link-bt"><a href="javascript:void(0);" class="btn-1">Durumu Kontrol Et<span></span></a></div>
+                    <div class="cta-1-link-bt"><a href="javascript:void(0);" class="btn-1">Durumu Kontrol Et<span></span></a></div>
                 </div>
             </div>
         </section>

@@ -175,3 +175,5 @@ C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\Rezervasyon.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Musteriler\YeniMusteri.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Rezervasyon\Index.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Rezervasyon\RezervasyonGetir.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Rezervasyon\EskiRezervasyon.cshtml.g.cs

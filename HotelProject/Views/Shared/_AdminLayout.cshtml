@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
-
+    <link href="~/Admin/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -91,7 +91,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/Admin/MevcutRezervasyonlar/MevcutRezervasyonlar" class="nav-link">
+                            <a href="/Admin/Rezervasyon/Index" class="nav-link">
                                 <i class="nav-icon fa-solid fa-suitcase-rolling"></i>
                                 <p>
                                     Rezervasyonlar
@@ -100,7 +100,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/MevcutRezervasyonlar/MevcutRezervasyonlar" class="nav-link">
+                                    <a href="/Admin/Rezervasyon/Index" class="nav-link">
                                         <i class="fa-solid fa-arrow-right"></i>
                                         <p>Mevcut Rezervasyonlar</p>
                                     </a>
@@ -108,7 +108,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/Admin/EskiRezervasyonlar/EskiRezervasyonlar" class="nav-link">
+                                    <a href="/Admin/Rezervasyon/EskiRezervasyon" class="nav-link">
                                         <i class="fa-solid fa-arrow-right"></i>
                                         <p>Eski Rezervasyonlar</p>
                                     </a>
@@ -186,8 +186,8 @@
         </div>
         <footer class="main-footer">
             @*<div class="float-right d-none d-sm-block">
-                
-            </div>*@
+
+                </div>*@
             <strong>Copyright &copy; @DateTime.Today.Year <a href="https://openyazilim.com/open/">OPEN YAZILIM</a></strong> Tüm hakları saklıdır.
         </footer>
         <aside class="control-sidebar control-sidebar-dark">
@@ -238,11 +238,57 @@
     <script src="~/AdminLTE/AdminLTE-master/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/AdminLTE/AdminLTE-master/dist/js/adminlte.js"></script>
+
+    <script src="~/Admin/assets/plugins/sweet-alert/sweetalert2.all.min.js"></script>
+
+    @if (TempData["success"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Başarılı',
+                confirmButtonText:'Tamam',
+                text: '@Html.Raw(TempData["success"])'
+            })
+        </script>
+    }
+    @if (TempData["error"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata',
+                confirmButtonText:'Tamam',
+                text: '@Html.Raw(TempData["error"])'
+            })
+        </script>
+    }
+    @if (TempData["warning"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Dikkat',
+                confirmButtonText:'Tamam',
+                text: '@Html.Raw(TempData["warning"])'
+            })
+        </script>
+    }
+    @if (TempData["info"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'info',
+                title: 'Bilgi',
+                confirmButtonText:'Tamam',
+                text:'@Html.Raw(TempData["info"])'
+            })
+        </script>
+    }
     
-    
-    
-    
-    
+
+
+
     <!-- AdminLTE for demo purposes -->
     <!--<script src="~/AdminLTE/AdminLTE-master/dist/js/demo.js"></script>-->
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

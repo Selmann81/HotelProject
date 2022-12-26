@@ -1,8 +1,253 @@
-﻿
+﻿@model List<HotelProject.Models.Rezervasyon>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Mevcut Rezervasyonlar</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
 
-<h1>Index</h1>
+        <div class="card">
+            <div class="row p-b-20">
+                <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group">
+                        <a href="#" id="odaDurumButon" onclick="odaDurum()" class="btn btn-info" style=" margin: 16px 14px 15px 12px;">
+                            Oda Durumları İncele <i class="fa fa-bed"></i>
+                        </a>
+                    </div>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Oda Başlık</th>
+                                <th>Müşteri Adı</th>
+                                <th>Giriş Tarihi</th>
+                                <th>Çıkış Tarihi</th>
+                                <th>Kişi</th>
+                                <th>Pansiyon</th>
+                                <th>Durum</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
 
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                string durum = "";
+                                if (item.Act == 1)
+                                    durum = "Beklemede";
+                                else if (item.Act == 2)
+                                    durum = "Odada";
+                                else if (item.Act == 3)
+                                    durum = "Çıkış Yaptı";
+                                <tr class="odd gradeX">
+                                    <td>@item.OdaTip.Baslik</td>
+                                    <td>@item.Musteri.Adisoyadi</td>
+                                    <td>@item.GirisTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td>@item.CikisTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td>@item.Yetiskin Yetişkin @item.Cocuk Çocuk</td>
+                                    <td>@item.Pansiyonlars.Baslik</td>
+                                    <td>@durum</td>
+                                    <td>
+                                        <a style="margin-right: 4px;" href="~/Admin/Rezervasyon/RezervasyonGetir/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="İncele">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </a>
+                                        @if (item.Act == 1)
+                                        {
+                                            <a style="margin-right: 4px;"  data-bs-toggle="modal" data-bs-target=".rezOnayla" data-idno="@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Onayla">
+                                                <i class="fa-regular fa-circle-check"></i>
+                                            </a>
+                                        }
+                                        @if (item.Act == 2)
+                                        {
+                                            <a style="margin-right: 4px;" data-bs-target=".rezCikis" data-idno="@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Çıkış Yaptı">
+                                                <i class="fa-solid fa-right-from-bracket"></i>
+                                            </a>
+
+                                        }
+
+                                        <a style="margin-right: 4px;" href="~/Admin/Rezervasyon/RezervasyonSil/@item.Idno" class="btn btn-tbl-edit btn-xs btn-danger" title="Düzenle"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                <div class="modal fade rezOnayla" id="rezOnayla" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <form action="~/yonetim/rezervasyon/RezervasyonOnay" method="post">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">Rezervasyon</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Oda Seçin
+                                        </div>
+                                        <div class="col-md-6">
+                                            @Html.DropDownList("OdaId", (List<SelectListItem>)ViewBag.odaListe, new { @class = "form-control", tabindex = "2" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="hidden" id="OnayId" name="id" />
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        İptal
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">Rezervasyonu Onayla</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade rezCikis" id="rezCikis" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <form action="~/yonetim/rezervasyon/RezervasyonCikis" method="post">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">Rezervasyon</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            Çıkış Tarihi
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input name="cikistarih" class="form-control" value="@DateTime.Now" readonly="readonly" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            Ek Ücret
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input name="ekucret" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Açıklama
+                                        </div>
+                                        <div class="col-md-6">
+                                            <textarea name="aciklama" class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="hidden" id="CikisId" name="id" />
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        İptal
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">Otel Çıkış Gerçekleştir</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade odaDurumModal" id="odaDurumModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <form action="~/yonetim/rezervasyon/RezervasyonCikis" method="post">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">Rezervasyon</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <div id="odaDurumTablo"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"></div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- /.content-wrapper -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<script src="~/Admin/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Admin/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+<script src="~/Admin/assets/js/pages/table/table_data.js"></script>
+
+<script>
+    $('.rezOnayla').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var idno = button.data('idno')
+
+        $('#OnayId').val(idno);
+
+    })
+    $('.rezCikis').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var idno = button.data('idno')
+
+        $('#CikisId').val(idno);
+
+    })
+</script>
+<script>
+        function odaDurum() {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "get",
+                url: '@Url.Action("OdaDurum", "Rezervasyon")',
+                data: {
+                    'idno': 0
+                },
+                success: function (data) {
+                    if (data != null) {
+                        $('.odaDurumModal').modal('show');
+                        let w = jQuery.parseJSON(data);
+                        let tablehtml = "<table class='table table-sm table-striped mb-0'><thead><tr><th>Oda No</th><th>Oda Adı</th><th>Durum</th></thead><tbody>";
+                        $.each(w, (index, value) => {
+                            tablehtml += `<tr><td>${value.OdaNo}</td><td>${value.OdaAdi}</td><td>${value.Durum}</td></tr>`
+                        });
+                        tablehtml += "</tbody></table>";
+                        $("#odaDurumTablo").html(tablehtml);
+                    }
+                }
+            });
+        }
+</script>
+}

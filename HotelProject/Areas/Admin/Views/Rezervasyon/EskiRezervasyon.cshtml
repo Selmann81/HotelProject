@@ -1,0 +1,83 @@
+﻿@model List<HotelProject.Models.Rezervasyon>
+@{
+    ViewData["Title"] = "EskiRezervasyon";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Eski Rezervasyonlar</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Eski rezervasyonları bu tablodan görebilirsiniz.</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Oda Tipi</th>
+                            <th>Müşteri Adı</th>
+                            <th>Giriş Tarihi</th>
+                            <th>Çıkış Tarihi</th>
+                            <th>Pansiyon</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            string durum = "";
+                            if (item.Act == 1)
+                                durum = "Beklemede";
+                            else if (item.Act == 2)
+                                durum = "Odada";
+                            else if (item.Act == 3)
+                                durum = "Çıkış Yaptı";
+                            <tr>
+                                <td>@item.OdaTip.Baslik</td>
+                                <td>@item.Musteri.Adisoyadi</td>
+                                <td>@item.GirisTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>@item.CikisTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>@item.Pansiyonlars.Baslik</td>
+                                <td>@durum</td>
+                                <td>
+                                    <a style="margin-right: 4px;" href="/Admin/Rezervasyon/RezervasyonGetir/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Detay"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                    <a style="margin-right: 4px;" href="/Admin/Rezervasyon/RezervasyonSil/@item.Idno" class="btn btn-tbl-edit btn-xs btn-danger" title="Sil"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+</section>
+
+
+
+
+
