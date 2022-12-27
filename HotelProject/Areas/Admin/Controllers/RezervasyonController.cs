@@ -65,18 +65,39 @@ namespace HotelProject.Areas.Admin.Controllers
             detay.MusteriViewModel.Uyruk = rez.Musteri.Uyruk;
             return View(detay);
         }
+
+        public IActionResult RezervasyonOnay(int id)
+        {
+            Odalar odalar = new Odalar();
+
+            List<SelectListItem> odalars = (from p in c.Odalars.ToList().Where(p => p.Act == 1).OrderBy(p => p.OdaAdi)
+                                            select new SelectListItem
+                                            {
+                                                Text = p.OdaAdi,
+                                                Value = p.Idno.ToString()
+                                            }).ToList();
+            ViewBag.odaAdi = odalars;
+            if (id != 0)
+            {
+                odalar = c.Odalars.SingleOrDefault(x => x.Idno == id);
+            }
+            //    return RedirectToAction("RezervasyonOnay", "Rezervasyon");
+            return View(odalar);
+        }
+
+        [HttpPost]
         public IActionResult RezervasyonOnay(int id, int OdaId)
         {
-            var dolumu = c.Rezervasyons.FirstOrDefault(x => x.Act == 2 && x.OdaId == OdaId);
-            if (dolumu == null)
+            var onay = c.Rezervasyons.FirstOrDefault(x => x.Act == 2 && x.OdaId == OdaId);
+            if (onay == null)
             {
-                var x = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
-                x.OdaId = OdaId;
-                x.Act = 2;
-                c.Set<Rezervasyon>().Update(x);
+                var rez = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
+                rez.Act = 2;
+                c.Set<Rezervasyon>().Update(rez);
                 c.SaveChanges();
                 TempData["success"] = "Rezervasyon işlemi tamamlandı";
             }
+
             else
             {
                 TempData["error"] = "Oda dolu! Lütfen başka bir oda seçiniz.";
@@ -87,23 +108,23 @@ namespace HotelProject.Areas.Admin.Controllers
         }
         public IActionResult RezervasyonCikis(int id, DateTime cikistarih, double ekucret, string aciklama)
         {
-            var x = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
-            x.Act = 3;
-            x.CikisTarihi = cikistarih;
-            x.EkUcret = ekucret;
-            x.Aciklama = aciklama;
-            c.Set<Rezervasyon>().Update(x);
+            var rez = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
+            rez.Act = 3;
+            rez.CikisTarihi = cikistarih;
+            rez.EkUcret = ekucret;
+            rez.Aciklama = aciklama;
+            c.Set<Rezervasyon>().Update(rez);
             c.SaveChanges();
             TempData["success"] = "Odadan başarıyla çıkış yapıldı.";
             return RedirectToAction("Index", "Rezervasyon");
         }
         public IActionResult RezervasyonSil(int id)
         {
-            var x = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
-            if (x != null)
+            var rez = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
+            if (rez != null)
             {
-                x.Act = 0;
-                c.Set<Rezervasyon>().Update(x);
+                rez.Act = 0;
+                c.Set<Rezervasyon>().Update(rez);
                 c.SaveChanges();
                 TempData["success"] = "Rezervasyon başarıyla silindi.";
             }

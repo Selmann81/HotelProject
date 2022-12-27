@@ -11,3 +11,20 @@
 
 
 
+@if (TempData["success"] != null)
+{
+    <script src="~/Admin/assets/plugins/sweet-alert/sweetalert2.all.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        setTimeout(loadAfterTime, 1500)
+        function loadAfterTime() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Başarılı',
+                confirmButtonText: 'Tamam',
+                text: '@Html.Raw(TempData["success"])'
+            });
+        }
+    </script>
+}

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/AdminLTE/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
+
+    <link href="~/Admin/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -285,9 +287,9 @@
             })
         </script>
     }
-    
 
 
+    @RenderSection("Scripts", required: false)
 
     <!-- AdminLTE for demo purposes -->
     <!--<script src="~/AdminLTE/AdminLTE-master/dist/js/demo.js"></script>-->

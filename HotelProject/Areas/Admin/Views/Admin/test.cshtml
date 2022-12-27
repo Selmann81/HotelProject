@@ -1,0 +1,54 @@
+﻿@model HotelProject.Models.Odalar
+@{
+    ViewData["Title"] = "test";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Yeni Oda</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Yeni Oda kaydını burdan yapabilirsiniz.</h3>
+        </div>
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Rezervasyon" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+                                    <label type="text" id="txtRoomName">Oda No</label>
+                                    @if (ViewBag.odalar != null)
+                                    {
+                                        @Html.DropDownListFor(x => x.OdaTip, (List<SelectListItem>)ViewBag.odaTip, new { @class = "form-control", tabindex = "2" })}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 p-t-20">
+                            <input type="hidden" asp-for="Idno" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Rezervasyon Yap</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

@@ -43,7 +43,7 @@
                             <tr>
                                 <td>@item.Idno</td>
                                 <td>@item.Baslik</td>
-                                <td>@item.Ucret</td>
+                                <td>@item.Ucret.ToString("N2")</td>
                                 <td>
                                     @*<a style="margin-right: 4px;" href="/Admin/Pansiyonlar/YeniPansiyon" class="btn btn-tbl-edit btn-xs btn-secondary" title="Ekle"><i class="fa-solid fa-plus"></i></a>*@
                                     <a style="margin-right: 4px;" href="/Admin/Pansiyonlar/YeniPansiyon/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Düzenle"><i class="fa-solid fa-pencil"></i></a>

@@ -69,7 +69,7 @@
                                         </a>
                                         @if (item.Act == 1)
                                         {
-                                            <a style="margin-right: 4px;"  data-bs-toggle="modal" data-bs-target=".rezOnayla" data-idno="@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Onayla">
+                                            <a style="margin-right: 4px;" href="~/Admin/Rezervasyon/RezervasyonOnay/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Onayla">
                                                 <i class="fa-regular fa-circle-check"></i>
                                             </a>
                                         }
@@ -89,80 +89,7 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
-                <div class="modal fade rezOnayla" id="rezOnayla" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <form action="~/yonetim/rezervasyon/RezervasyonOnay" method="post">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="exampleModalLabel">Rezervasyon</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            Oda Seçin
-                                        </div>
-                                        <div class="col-md-6">
-                                            @Html.DropDownList("OdaId", (List<SelectListItem>)ViewBag.odaListe, new { @class = "form-control", tabindex = "2" })
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="hidden" id="OnayId" name="id" />
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        İptal
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">Rezervasyonu Onayla</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade rezCikis" id="rezCikis" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <form action="~/yonetim/rezervasyon/RezervasyonCikis" method="post">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="exampleModalLabel">Rezervasyon</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            Çıkış Tarihi
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input name="cikistarih" class="form-control" value="@DateTime.Now" readonly="readonly" />
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            Ek Ücret
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input name="ekucret" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            Açıklama
-                                        </div>
-                                        <div class="col-md-6">
-                                            <textarea name="aciklama" class="form-control" rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="hidden" id="CikisId" name="id" />
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        İptal
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">Otel Çıkış Gerçekleştir</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="modal fade odaDurumModal" id="odaDurumModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
@@ -187,13 +114,8 @@
 
                 </div>
             </div>
-
-            <!-- /.content-wrapper -->
-            <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
             </aside>
-            <!-- /.control-sidebar -->
         </div>
     </div>
 </section>
@@ -202,30 +124,25 @@
 
 
 
+@section Scripts{
+    <script src="~/admin/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script>
+        $('.rezOnayla').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var idno = button.data('idno')
 
+            $('#OnayId').val(idno);
 
+        })
+        $('.rezCikis').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var idno = button.data('idno')
 
-<script src="~/Admin/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="~/Admin/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
-<script src="~/Admin/assets/js/pages/table/table_data.js"></script>
+            $('#CikisId').val(idno);
 
-<script>
-    $('.rezOnayla').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var idno = button.data('idno')
-
-        $('#OnayId').val(idno);
-
-    })
-    $('.rezCikis').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var idno = button.data('idno')
-
-        $('#CikisId').val(idno);
-
-    })
-</script>
-<script>
+        })
+    </script>
+    <script>
         function odaDurum() {
             $.ajax({
                 contentType: "application/json",
@@ -249,5 +166,55 @@
                 }
             });
         }
-</script>
+    </script>
+
 }
+
+
+
+
+@*<script src="~/Admin/assets/plugins/sweet-alert/sweetalert2.all.min.js"></script>
+    @if (TempData["success"] != null)
+    {
+        <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Başarılı',
+                    confirmButtonText:'Tamam',
+                    text: '@Html.Raw(TempData["success"])'
+                })
+        </script>
+    }
+    @if (TempData["error"] != null)
+    {
+        <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hata',
+                    confirmButtonText:'Tamam',
+                    text: '@Html.Raw(TempData["error"])'
+                })
+        </script>
+    }
+    @if (TempData["warning"] != null)
+    {
+        <script>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Dikkat',
+                    confirmButtonText:'Tamam',
+                    text: '@Html.Raw(TempData["warning"])'
+                })
+        </script>
+    }
+    @if (TempData["info"] != null)
+    {
+        <script>
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Bilgi',
+                    confirmButtonText:'Tamam',
+                    text:'@Html.Raw(TempData["info"])'
+                })
+        </script>
+    }*@

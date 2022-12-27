@@ -20,5 +20,7 @@ namespace HotelProject.Models
         public DbSet<OdaOzellik> OdaOzelliks { get; set; }
         public DbSet<Rezervasyon> Rezervasyons { get; set; }
 
+        public DbSet<Iletisim> Iletisims { get; set; }
+
     }
 }
