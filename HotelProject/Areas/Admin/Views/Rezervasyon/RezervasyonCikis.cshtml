@@ -1,6 +1,6 @@
-﻿
+﻿@model HotelProject.Models.Rezervasyon
 @{
-    ViewData["Title"] = "test";
+    ViewData["Title"] = "RezervasyonCikis";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Yeni Oda</h1>
+                <h1 class="m-0">Rezervasyon Çıkış</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
             </div><!-- /.col -->
@@ -21,7 +21,7 @@
 <section class="content">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Yeni Oda kaydını burdan yapabilirsiniz.</h3>
+            <h3 class="card-title">Rezervasyon çıkışını buradan yapabilirsiniz.</h3>
         </div>
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
@@ -46,11 +46,8 @@
                         </div>
                         <div class="form-group">
                         </div>
-
-                        <div class="col-lg-6 p-t-20">
-                            <input type="hidden" />
-                        </div>
-                        <input type="hidden" id="CikisId" name="id" />
+                        <input type="hidden" name="id"/>
+                        <input type="hidden"  name="OdaId"/>
                         <button type="button" class="btn btn-secondary">İptal</button>
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                     </form>
@@ -59,4 +56,5 @@
         </div>
     </div>
 </section>
+
 

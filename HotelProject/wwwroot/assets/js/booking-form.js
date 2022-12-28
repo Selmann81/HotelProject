@@ -35,7 +35,6 @@ jQuery(document).ready(function() {
             $( "#nd_booking_date_number_to_front" ).text(nd_booking_date_number_to);
             var nd_booking_date_month_to = $( "#nd_booking_date_month_to" ).val();
             $( "#nd_booking_date_month_to_front" ).text(nd_booking_date_month_to);
-
           }
         });
         

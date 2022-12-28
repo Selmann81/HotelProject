@@ -179,3 +179,4 @@ C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Views\Bilgi\BilgiIndex.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Admin\test.cshtml.g.cs
 C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Rezervasyon\RezervasyonOnay.cshtml.g.cs
+C:\Users\Lenovo 3020\Desktop\Stajyer\Selman\HotelProject\HotelProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Rezervasyon\RezervasyonCikis.cshtml.g.cs

@@ -75,7 +75,7 @@
                                         }
                                         @if (item.Act == 2)
                                         {
-                                            <a style="margin-right: 4px;" data-bs-target=".rezCikis" data-idno="@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Çıkış Yaptı">
+                                            <a style="margin-right: 4px;" href="~/Admin/Rezervasyon/RezervasyonCikis/@item.Idno" class="btn btn-tbl-edit btn-xs btn-secondary" title="Çıkış Yaptı">
                                                 <i class="fa-solid fa-right-from-bracket"></i>
                                             </a>
 
@@ -111,7 +111,6 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
             <aside class="control-sidebar control-sidebar-dark">
@@ -119,9 +118,6 @@
         </div>
     </div>
 </section>
-
-
-
 
 
 @section Scripts{

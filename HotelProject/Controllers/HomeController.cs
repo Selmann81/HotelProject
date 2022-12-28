@@ -47,7 +47,6 @@ namespace HotelProject.Controllers
                 c.SaveChanges();
 
             }
-
             string girisZamani = Convert.ToString(girisTarih);
             string cikisZamani = Convert.ToString(cikisTarih);
             TimeSpan girisCikisFarki = DateTime.Parse(cikisZamani).Subtract(DateTime.Parse(girisZamani));

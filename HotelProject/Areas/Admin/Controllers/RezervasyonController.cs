@@ -70,10 +70,10 @@ namespace HotelProject.Areas.Admin.Controllers
         {
             Odalar odalar = new Odalar();
 
-            List<SelectListItem> odalars = (from p in c.Odalars.ToList().Where(p => p.Act == 1).OrderBy(p => p.OdaAdi)
+            List<SelectListItem> odalars = (from p in c.Odalars.ToList().Where(p => p.Act == 1).OrderBy(p => p.OdaNo)
                                             select new SelectListItem
                                             {
-                                                Text = p.OdaAdi,
+                                                Text = p.OdaNo + " - " + p.OdaAdi,
                                                 Value = p.Idno.ToString()
                                             }).ToList();
             ViewBag.odaAdi = odalars;
@@ -88,10 +88,11 @@ namespace HotelProject.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult RezervasyonOnay(int id, int OdaId)
         {
-            var onay = c.Rezervasyons.FirstOrDefault(x => x.Act == 2 && x.OdaId == OdaId);
-            if (onay == null)
+            var dolumu = c.Rezervasyons.FirstOrDefault(x => x.Act == 2 && x.OdaId == OdaId);
+            if (dolumu == null)
             {
                 var rez = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
+                rez.OdaId = OdaId;
                 rez.Act = 2;
                 c.Set<Rezervasyon>().Update(rez);
                 c.SaveChanges();
@@ -106,9 +107,17 @@ namespace HotelProject.Areas.Admin.Controllers
 
             return RedirectToAction("Index", "Rezervasyon");
         }
-        public IActionResult RezervasyonCikis(int id, DateTime cikistarih, double ekucret, string aciklama)
+        [HttpGet]
+        public IActionResult RezervasyonCikis(int id)
         {
-            var rez = c.Rezervasyons.SingleOrDefault(x => x.Idno == id);
+            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id);
+            return View(rez);
+        }
+        [HttpPost]
+        public IActionResult RezervasyonCikis(int id, int OdaId, DateTime cikistarih, double ekucret, string aciklama)
+        {
+            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.OdaId == OdaId);
+            rez.OdaId = OdaId;
             rez.Act = 3;
             rez.CikisTarihi = cikistarih;
             rez.EkUcret = ekucret;
@@ -145,7 +154,7 @@ namespace HotelProject.Areas.Admin.Controllers
                 oda.OdaAdi = item.OdaAdi;
                 oda.OdaNo = item.OdaNo.ToString();
                 oda.Durum = "Boş";
-                var durum = rezervasyonlar.SingleOrDefault(x => x.OdaId == item.Idno);
+                var durum = rezervasyonlar.FirstOrDefault(x => x.OdaId == item.Idno);
                 if (durum != null)
                     oda.Durum = "Dolu";
                 odaList.Add(oda);
