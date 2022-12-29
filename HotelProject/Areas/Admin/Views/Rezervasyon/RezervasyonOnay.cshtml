@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Yeni Oda</h1>
+                <h1 class="m-0">Rezervasyon Onay</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
             </div><!-- /.col -->
@@ -21,7 +21,7 @@
 <section class="content">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Yeni Oda kaydını burdan yapabilirsiniz.</h3>
+            <h3 class="card-title">Rezervasyon Onayını Bu Sayfadan Yapabilirsiniz.</h3>
         </div>
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
@@ -32,7 +32,7 @@
                             <div class="form-group col-md-6">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
                                     <label type="text" id="txtRoomName">Oda Tipi</label>
-                                        @*@Html.DropDownListFor(x => x.OdaId, (List<SelectListItem>)ViewBag.odaAdi, new { @class = "form-control", tabindex = "2" })*@
+                                    @*@Html.DropDownListFor(x => x.OdaId, (List<SelectListItem>)ViewBag.odaAdi, new { @class = "form-control", tabindex = "2" })*@
                                     <select class="form-control" name="OdaId" asp-items="ViewBag.odaAdi"></select>
                                 </div>
                             </div>
@@ -41,7 +41,6 @@
                         <div class="col-lg-6 p-t-20">
                             <input type="hidden" asp-for="Idno" />
                         </div>
-
                         <button type="submit" class="btn btn-primary">Rezervasyon Yap</button>
                     </form>
                 </div>

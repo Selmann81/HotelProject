@@ -1,6 +1,7 @@
 ﻿using HotelProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,19 @@ namespace HotelProject.Areas.Admin.Controllers
         }
         public IActionResult AdminAnasayfa()
         {
+            //var count = c.Rezervasyons.GroupBy(x => x.Idno).Select(y => new
+            //{
+            //    Id = y.Key,
+            //    CoutOfusers = y.Count()
+            //}).ToList();
+
+            var list = c.Rezervasyons.Where(x => x.Act == 1).Count();
+            var list = c.Rezervasyons.Where(x => x.Act == 1).Count();
+            var list = c.Rezervasyons.Where(x => x.Act == 1).Count();
+            if (list==)
+            {
+                ViewBag = "";
+            }
             return View();
         }
         public IActionResult deneme()

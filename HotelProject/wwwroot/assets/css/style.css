@@ -2429,23 +2429,23 @@ h4.feature-1-title {
 }
 
 a.feature-1-link-btn {
-    width: 60px;
-    height: 60px;
-    background: #FFFFFF;
-    box-shadow: 0px 10px 80px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
-    display: inline-block;
-    text-align: center;
-    line-height: 63px;
-    position: relative;
-    transform: translateY(50%);
+	width: 60px;
+	height: 60px;
+	background: #FFFFFF;
+	box-shadow: 0px 10px 80px rgba(0, 0, 0, 0.2);
+	border-radius: 30px;
+	display: inline-block;
+	text-align: center;
+	line-height: 63px;
+	position: relative;
+	transform: translateY(50%);
 	font-size: 13px;
 }
 
-a.feature-1-link-btn:hover {
-    color: #fff;
-    background: var(--theme-color);
-}
+	a.feature-1-link-btn:hover {
+		color: #fff;
+		background: var(--theme-color);
+	}
 
 /* about */
 .about-1-shape-1 {
