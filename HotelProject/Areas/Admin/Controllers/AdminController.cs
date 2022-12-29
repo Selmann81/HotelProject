@@ -26,12 +26,9 @@ namespace HotelProject.Areas.Admin.Controllers
             //}).ToList();
 
             var list = c.Rezervasyons.Where(x => x.Act == 1).Count();
-            var list = c.Rezervasyons.Where(x => x.Act == 1).Count();
-            var list = c.Rezervasyons.Where(x => x.Act == 1).Count();
-            if (list==)
-            {
-                ViewBag = "";
-            }
+            var list = c.Rezervasyons.Where(x => x.Act == 2).Count();
+            var list = c.Rezervasyons.Where(x => x.Act == 3).Count();
+           
             return View();
         }
         public IActionResult deneme()
