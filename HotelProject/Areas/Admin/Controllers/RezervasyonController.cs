@@ -114,9 +114,9 @@ namespace HotelProject.Areas.Admin.Controllers
             return View(rez);
         }
         [HttpPost]
-        public IActionResult RezervasyonCikis(int id, int OdaId, DateTime cikistarih, double ekucret, string aciklama)
+        public IActionResult RezervasyonCikis(int id /*int OdaId*/, DateTime cikistarih, double ekucret, string aciklama)
         {
-            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id && x.OdaId == OdaId);
+            var rez = c.Rezervasyons.FirstOrDefault(x => x.Idno == id /*&& x.OdaId == OdaId*/);
             //rez.OdaId = OdaId;
             rez.Act = 3;
             rez.CikisTarihi = cikistarih;

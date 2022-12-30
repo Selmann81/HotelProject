@@ -24,11 +24,18 @@ namespace HotelProject.Areas.Admin.Controllers
             //    Id = y.Key,
             //    CoutOfusers = y.Count()
             //}).ToList();
+            var list1 = c.Rezervasyons.Where(x => x.Act == 1).Count();
+            var list2 = c.Rezervasyons.Where(x => x.Act == 2).Count();
+            var list3 = c.Rezervasyons.Where(x => x.Act == 3).Count();
 
-            var list = c.Rezervasyons.Where(x => x.Act == 1).Count();
-            var list = c.Rezervasyons.Where(x => x.Act == 2).Count();
-            var list = c.Rezervasyons.Where(x => x.Act == 3).Count();
-           
+
+            ViewBag.list1 = list1;
+
+            ViewBag.list2 = list2;
+
+            ViewBag.list3 = list3;
+
+
             return View();
         }
         public IActionResult deneme()
@@ -38,9 +45,10 @@ namespace HotelProject.Areas.Admin.Controllers
         public IActionResult test(int id)
         {
             Odalar odalar = new Odalar();
-            
-            List<SelectListItem> odalars = (from p in c.Odalars.ToList().Where(p => p.Act == 1 && !String.IsNullOrEmpty(p.OdaAdi)).OrderBy(p => p.OdaAdi)select new SelectListItem
-                                                {
+
+            List<SelectListItem> odalars = (from p in c.Odalars.ToList().Where(p => p.Act == 1 && !String.IsNullOrEmpty(p.OdaAdi)).OrderBy(p => p.OdaAdi)
+                                            select new SelectListItem
+                                            {
                                                 Text = p.OdaAdi,
                                                 Value = p.Idno.ToString()
                                             }).ToList();
